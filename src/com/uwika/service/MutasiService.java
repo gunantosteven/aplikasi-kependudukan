@@ -5,10 +5,16 @@
  */
 package com.uwika.service;
 
+
+
 import com.uwika.model.DataPenduduk;
+import com.uwika.model.JenisKelamin;
 import com.uwika.model.Mutasi;
+import com.uwika.model.StatusKawin;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /**
@@ -49,14 +55,17 @@ public class MutasiService {
               updateemp = KoneksiMySQL.getConnection().prepareStatement
                                   ("UPDATE mutasi SET nik = ?, tempat = ?, tanggal = ?, keterangan = ? WHERE id = ?");
               updateemp.setString(1, mutasi.getNik());
-              updateemp.setDate(2, mutasi.getTanggal());
-              updateemp.setString(3, mutasi.getKeterangan());
-              updateemp.setLong(4, mutasi.getId());
+              updateemp.setString(2, mutasi.getTempat());
+              updateemp.setDate(3, mutasi.getTanggal());
+              updateemp.setString(4, mutasi.getKeterangan());
+              updateemp.setLong(5, id);
               
+              updateemp.executeUpdate();
             }
             catch(Exception z){
 	            JOptionPane.showMessageDialog(null,"Pengisian Data Gagal ??? \n"+ z.getMessage());
 	            cek=false;
+                    z.printStackTrace();
             }
             finally
             {
@@ -70,7 +79,7 @@ public class MutasiService {
 	    	PreparedStatement updateemp = null;
 	        boolean cek=true;
 	        try{
-                    updateemp = KoneksiMySQL.getConnection().prepareStatement("delete from mutas m where m.id = ?");
+                    updateemp = KoneksiMySQL.getConnection().prepareStatement("delete from mutasi where id = ?");
                     updateemp.setLong(1, id);
 	            updateemp.executeUpdate();
 	        }
@@ -84,4 +93,105 @@ public class MutasiService {
 	        }
 	        return cek;
 	    }
+        
+        public ArrayList<Mutasi> getAll()
+    {
+        PreparedStatement preparedStatement = null;
+        ArrayList<Mutasi> listMutasi = new ArrayList<Mutasi>();
+        try
+        {
+            
+            preparedStatement = KoneksiMySQL.getConnection().prepareStatement("select * from mutasi");
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while(resultSet.next())
+            {
+                Mutasi mutasi = new Mutasi();
+                mutasi.setId(Long.parseLong(resultSet.getString("id")));
+                mutasi.setNik(resultSet.getString("nik"));
+                mutasi.setTempat(resultSet.getString("tempat"));
+                mutasi.setTanggal(resultSet.getDate("tanggal"));
+                mutasi.setKeterangan(resultSet.getString("keterangan"));
+                
+                listMutasi.add(mutasi);
+            }
+        }
+        catch(Exception z){
+            z.printStackTrace();
+            JOptionPane.showMessageDialog(null, z.getMessage());
+        }
+        finally
+        {
+                try { preparedStatement.close(); } catch (SQLException logOrIgnore) {}
+        }
+        
+        return listMutasi;
+    }
+        
+        public ArrayList<Mutasi> GetListByNik(String nik)
+        {
+            PreparedStatement preparedStatement = null;
+            ArrayList<Mutasi> listMutasi = new ArrayList<Mutasi>();
+            try
+            {
+
+                preparedStatement = KoneksiMySQL.getConnection().prepareStatement("select * from mutasi where nik like '%"+ nik +"%'");
+                ResultSet resultSet = preparedStatement.executeQuery();
+                while(resultSet.next())
+                {
+                    Mutasi mutasi = new Mutasi();
+                    mutasi.setId(Long.parseLong(resultSet.getString("id")));
+                    mutasi.setNik(resultSet.getString("nik"));
+                    mutasi.setTempat(resultSet.getString("tempat"));
+                    mutasi.setTanggal(resultSet.getDate("tanggal"));
+                    mutasi.setKeterangan(resultSet.getString("keterangan"));
+
+                    listMutasi.add(mutasi);
+                }
+            }
+            catch(Exception z){
+                z.printStackTrace();
+                JOptionPane.showMessageDialog(null, z.getMessage());
+            }
+            finally
+            {
+                    try { preparedStatement.close(); } catch (SQLException logOrIgnore) {}
+            }
+
+            return listMutasi;
+        }
+        
+        public Mutasi getByNik(String nik)
+    {
+        PreparedStatement preparedStatement = null;
+        Mutasi mutasi = new Mutasi();
+        
+        try
+        {
+            
+            preparedStatement = KoneksiMySQL.getConnection().prepareStatement("select * from mutasi where nik = ?");
+            preparedStatement.setString(1, nik);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            if(resultSet.next())
+            {
+                mutasi.setNik(resultSet.getString("nik"));
+                mutasi.setTempat(resultSet.getString("tempat"));
+                mutasi.setTanggal(resultSet.getDate("tanggal"));
+                mutasi.setKeterangan(resultSet.getString("keterangan"));
+                
+            }
+            else
+                mutasi = null;
+        }
+        catch(Exception z){
+            z.printStackTrace();
+            JOptionPane.showMessageDialog(null, z.getMessage());
+        }
+        finally
+        {
+                try { preparedStatement.close(); } catch (SQLException logOrIgnore) {}
+        }
+        
+        
+        return mutasi;
+    }
 }

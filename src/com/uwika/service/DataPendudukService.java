@@ -11,6 +11,7 @@ import com.uwika.model.StatusKawin;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -197,5 +198,45 @@ public class DataPendudukService {
         
         
         return dataPenduduk;
+    }
+    
+    public ArrayList<DataPenduduk> getListByName(String nama)
+    {
+        ArrayList<DataPenduduk> listDataPenduduk = new ArrayList<DataPenduduk>();
+        Statement s = null;
+        DataPenduduk dataPenduduk = new DataPenduduk();
+        
+        try
+        {
+            String sql = "select * from data_penduduk where namaLengkap like '%"+ nama +"%'";
+            s = (Statement)KoneksiMySQL.getConnection().createStatement();
+            ResultSet resultSet = s.executeQuery(sql);
+            while(resultSet.next())
+            {
+                DataPenduduk dataPendudukan = new DataPenduduk();
+                dataPendudukan.setNik(resultSet.getString("nik"));
+                dataPendudukan.setNamaLengkap(resultSet.getString("namaLengkap"));
+                dataPendudukan.setJenisKelamin(resultSet.getString("jenisKelamin").equals("PRIA") ? JenisKelamin.PRIA : JenisKelamin.WANITA);
+                dataPendudukan.setStatusKawin(resultSet.getString("statusKawin").equals("KAWIN") ? StatusKawin.KAWIN : StatusKawin.TIDAKKAWIN);
+                dataPendudukan.setTempatLahir(resultSet.getString("tempatLahir"));
+                dataPendudukan.setTanggalLahir(resultSet.getDate("tanggalLahir"));
+                dataPendudukan.setAgama(resultSet.getString("agama"));
+                dataPendudukan.setPendidikanTerakhir(resultSet.getString("pendidikanTerakhir"));
+                dataPendudukan.setPekerjaan(resultSet.getString("pekerjaan"));
+                dataPendudukan.setKewarganegaraan(resultSet.getString("kewarganegaraan"));
+                dataPendudukan.setAlamatLengkap(resultSet.getString("alamatLengkap"));
+                dataPendudukan.setKedudukanDalamKeluarga(resultSet.getString("kedudukanDalamKeluarga"));
+                dataPendudukan.setKk(resultSet.getString("kk"));
+                dataPendudukan.setKeterangan(resultSet.getString("keterangan"));
+                
+                listDataPenduduk.add(dataPendudukan);
+            }
+        }
+        catch(Exception z){
+            z.printStackTrace();
+            JOptionPane.showMessageDialog(null, z.getMessage());
+        }
+        
+        return listDataPenduduk;
     }
 }

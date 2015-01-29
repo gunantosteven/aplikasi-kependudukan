@@ -51,17 +51,7 @@ public class Menu extends javax.swing.JFrame {
         jPanel1.setLayout(new java.awt.BorderLayout());
         jTabbedPane1.addTab("Data Penduduk", jPanel1);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 956, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 473, Short.MAX_VALUE)
-        );
-
+        jPanel2.setLayout(new java.awt.BorderLayout());
         jTabbedPane1.addTab("Mutasi", jPanel2);
 
         jPanel3.setLayout(new java.awt.BorderLayout());
@@ -97,6 +87,7 @@ public class Menu extends javax.swing.JFrame {
 
     DataPendudukView dataPendudukView;
     LaporanView laporanView;
+    MutasiView mutasiView;
     private void jTabbedPane1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jTabbedPane1StateChanged
         // TODO add your handling code here:
         if(jTabbedPane1.getSelectedIndex() == 0)
@@ -107,6 +98,14 @@ public class Menu extends javax.swing.JFrame {
                 jPanel1.add(dataPendudukView, BorderLayout.NORTH);
             }
             dataPendudukView.setVisible(true);
+        }
+        else if(jTabbedPane1.getSelectedIndex() == 1)
+        {
+            if(mutasiView == null)
+            {
+                mutasiView = new MutasiView();
+                jPanel2.add(mutasiView, BorderLayout.NORTH);
+            }
         }
         else if(jTabbedPane1.getSelectedIndex() == 2)
         {
