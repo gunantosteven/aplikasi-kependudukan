@@ -25,7 +25,7 @@ public class DataPendudukService {
 	        boolean cek=true;
 	        try{
 	          preparedStatement = KoneksiMySQL.getConnection().prepareStatement
-		        	      ("insert into data_penduduk values(?,?,?,?,?,?,?,?,?,?,?,?,?,?)"); 
+		        	      ("insert into data_penduduk values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)"); 
 	      preparedStatement.setString(1,da.getNik());
       	      preparedStatement.setString(2,da.getNamaLengkap());
       	      preparedStatement.setString(3,da.getJenisKelamin().toString());
@@ -40,6 +40,7 @@ public class DataPendudukService {
               preparedStatement.setString(12, da.getKedudukanDalamKeluarga());
               preparedStatement.setString(13, da.getKk());
               preparedStatement.setString(14, da.getKeterangan());
+              preparedStatement.setString(15, da.getStatus());
               
       	      preparedStatement.executeUpdate();
 	        }
@@ -60,7 +61,7 @@ public class DataPendudukService {
             boolean cek=true;
            try{
              preparedStatement = KoneksiMySQL.getConnection().prepareStatement
-                                 ("UPDATE data_penduduk SET namaLengkap = ?, jenisKelamin = ?, statusKawin = ?, tempatLahir = ?, tanggalLahir = ?, agama = ?, pendidikanTerakhir = ?, pekerjaan = ?, kewarganegaraan = ?, alamatLengkap = ?, kedudukanDalamKeluarga = ?, kk = ?, keterangan = ? WHERE nik = ?");
+                                 ("UPDATE data_penduduk SET namaLengkap = ?, jenisKelamin = ?, statusKawin = ?, tempatLahir = ?, tanggalLahir = ?, agama = ?, pendidikanTerakhir = ?, pekerjaan = ?, kewarganegaraan = ?, alamatLengkap = ?, kedudukanDalamKeluarga = ?, kk = ?, keterangan = ?, status = ? WHERE nik = ?");
              preparedStatement.setString(1,dataPenduduk.getNamaLengkap());
                preparedStatement.setString(2,dataPenduduk.getJenisKelamin().toString());
                preparedStatement.setString(3, dataPenduduk.getStatusKawin().toString());
@@ -74,7 +75,8 @@ public class DataPendudukService {
                preparedStatement.setString(11, dataPenduduk.getKedudukanDalamKeluarga());
                preparedStatement.setString(12, dataPenduduk.getKk());
                preparedStatement.setString(13, dataPenduduk.getKeterangan());
-               preparedStatement.setString(14, nik);
+               preparedStatement.setString(14, dataPenduduk.getStatus());
+               preparedStatement.setString(15, nik);
                
                preparedStatement.executeUpdate();
            }
@@ -135,6 +137,7 @@ public class DataPendudukService {
                 dataPendudukan.setKedudukanDalamKeluarga(resultSet.getString("kedudukanDalamKeluarga"));
                 dataPendudukan.setKk(resultSet.getString("kk"));
                 dataPendudukan.setKeterangan(resultSet.getString("keterangan"));
+                dataPendudukan.setStatus(resultSet.getString("status"));
                 
                 listDataPenduduk.add(dataPendudukan);
             }
@@ -178,6 +181,7 @@ public class DataPendudukService {
                 dataPenduduk.setKedudukanDalamKeluarga(resultSet.getString("kedudukanDalamKeluarga"));
                 dataPenduduk.setKk(resultSet.getString("kk"));
                 dataPenduduk.setKeterangan(resultSet.getString("keterangan"));
+                dataPenduduk.setStatus(resultSet.getString("status"));
             }
             else
                 dataPenduduk = null;

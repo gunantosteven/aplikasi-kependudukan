@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jan 28, 2015 at 10:27 
+-- Generation Time: Jan 29, 2015 at 09:07 
 -- Server version: 5.5.36
 -- PHP Version: 5.4.27
 
@@ -41,6 +41,7 @@ CREATE TABLE IF NOT EXISTS `data_penduduk` (
   `kedudukanDalamKeluarga` varchar(100) NOT NULL,
   `kk` varchar(30) NOT NULL,
   `keterangan` varchar(200) NOT NULL,
+  `status` varchar(25) NOT NULL,
   PRIMARY KEY (`nik`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -48,34 +49,10 @@ CREATE TABLE IF NOT EXISTS `data_penduduk` (
 -- Dumping data for table `data_penduduk`
 --
 
-INSERT INTO `data_penduduk` (`nik`, `namaLengkap`, `jenisKelamin`, `statusKawin`, `tempatLahir`, `tanggalLahir`, `agama`, `pendidikanTerakhir`, `pekerjaan`, `kewarganegaraan`, `alamatLengkap`, `kedudukanDalamKeluarga`, `kk`, `keterangan`) VALUES
-('asd', 'asd', 'PRIA', 'KAWIN', 'asd', '1999-01-01', 'asd', 'asd', 'asd', 'asd', 'asd', 'asd', 'asdf', 'asd');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `mutasi`
---
-
-CREATE TABLE IF NOT EXISTS `mutasi` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `nik` varchar(20) NOT NULL,
-  `tempat` varchar(100) NOT NULL,
-  `tanggal` date NOT NULL,
-  `keterangan` varchar(100) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `nik` (`nik`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `mutasi`
---
-ALTER TABLE `mutasi`
-  ADD CONSTRAINT `mutasi_ibfk_1` FOREIGN KEY (`nik`) REFERENCES `data_penduduk` (`nik`);
+INSERT INTO `data_penduduk` (`nik`, `namaLengkap`, `jenisKelamin`, `statusKawin`, `tempatLahir`, `tanggalLahir`, `agama`, `pendidikanTerakhir`, `pekerjaan`, `kewarganegaraan`, `alamatLengkap`, `kedudukanDalamKeluarga`, `kk`, `keterangan`, `status`) VALUES
+('12312312', 'steven', 'WANITA', 'KAWIN', 'asfasf', '1930-01-29', 'asfasf', 'asfasfas', 'KARYAWAN', 'asfasf', 'asfasf', 'asfasf', 'asdf', 'asfasf', 'Hidup'),
+('asd', 'asd', 'PRIA', 'KAWIN', 'asd', '2015-01-01', 'asd', 'asd', 'ABRI', 'asd', 'asd', 'asd', 'asdf', 'asd', 'Hidup'),
+('zxc', 'zxc', 'WANITA', 'KAWIN', 'zxc', '1994-01-28', 'zxc', 'zxc', 'LAIN-LAIN', 'zxc', 'zxc', 'zxc', 'zxc', 'zxc', 'Mati');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

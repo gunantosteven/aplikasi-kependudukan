@@ -35,6 +35,7 @@ public class LaporanView extends javax.swing.JPanel {
         for(int i = 1970; 2100 > i; i++)
         {
             comboBoxTahun.addItem(i);
+            comboBoxKeadaanPendudukTahun.addItem(i);
         }
     }
 
@@ -59,6 +60,12 @@ public class LaporanView extends javax.swing.JPanel {
         jLabel6 = new javax.swing.JLabel();
         calendarTanggalPertumbuhanPenduduk = new de.wannawork.jcalendar.JCalendarComboBox();
         btnCetakPertumbuhanPenduduk = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
+        comboBoxKeadaanPendudukBulan = new javax.swing.JComboBox();
+        btnCetakPendudukPindahDatangMati1 = new javax.swing.JButton();
+        jLabel8 = new javax.swing.JLabel();
+        comboBoxKeadaanPendudukTahun = new javax.swing.JComboBox();
+        jLabel9 = new javax.swing.JLabel();
 
         jLabel1.setText("Laporan Penduduk Pindah / Datang Dan Mati");
 
@@ -90,6 +97,21 @@ public class LaporanView extends javax.swing.JPanel {
             }
         });
 
+        jLabel7.setText("Laporan Keadaan Penduduk");
+
+        comboBoxKeadaanPendudukBulan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Januari", "Febuari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember" }));
+
+        btnCetakPendudukPindahDatangMati1.setText("Cetak");
+        btnCetakPendudukPindahDatangMati1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCetakPendudukPindahDatangMati1ActionPerformed(evt);
+            }
+        });
+
+        jLabel8.setText("Bulan :");
+
+        jLabel9.setText("Tahun :");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -113,18 +135,30 @@ public class LaporanView extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtKepalaDesaSugeng, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnCetakPertumbuhanPenduduk)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(btnCetakPertumbuhanPenduduk)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel4)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(comboBoxTahun, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel5)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel6)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(calendarTanggalPertumbuhanPenduduk, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jLabel7)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(btnCetakPendudukPindahDatangMati1)
                                 .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel8)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(comboBoxTahun, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addComponent(jLabel5)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jLabel6)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(calendarTanggalPertumbuhanPenduduk, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(comboBoxKeadaanPendudukBulan, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel9)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(comboBoxKeadaanPendudukTahun, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -154,7 +188,19 @@ public class LaporanView extends javax.swing.JPanel {
                     .addComponent(calendarTanggalPertumbuhanPenduduk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnCetakPertumbuhanPenduduk)
-                .addContainerGap(224, Short.MAX_VALUE))
+                .addGap(29, 29, 29)
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(comboBoxKeadaanPendudukBulan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel9)
+                    .addComponent(comboBoxKeadaanPendudukTahun, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(16, 16, 16)
+                .addComponent(btnCetakPendudukPindahDatangMati1)
+                .addContainerGap(55, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -196,12 +242,33 @@ public class LaporanView extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnCetakPertumbuhanPendudukActionPerformed
 
+    private void btnCetakPendudukPindahDatangMati1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCetakPendudukPindahDatangMati1ActionPerformed
+        // TODO add your handling code here:
+        try{
+                    JasperDesign jasperDesign = JRXmlLoader.load(LaporanView.class.getResourceAsStream("/com/uwika/laporan/laporan_keadaan_penduduk.jrxml"));
+	            HashMap<String,Object> param = new HashMap<String,Object>();
+                    param.put("bulanAngka", Long.valueOf(comboBoxKeadaanPendudukBulan.getSelectedIndex() + 1) );
+                    param.put("tahun", Long.parseLong(comboBoxKeadaanPendudukTahun.getSelectedItem().toString()));
+                    param.put("bulan", comboBoxKeadaanPendudukBulan.getSelectedItem().toString());
+                    param.put("kepalaDesa", txtKepalaDesaSugeng.getText());
+	            JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
+	            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport,param, KoneksiMySQL.getConnection());
+	            JasperViewer.viewReport(jasperPrint,false);
+        }catch (Exception e){
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }//GEN-LAST:event_btnCetakPendudukPindahDatangMati1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCetakPendudukPindahDatangMati;
+    private javax.swing.JButton btnCetakPendudukPindahDatangMati1;
     private javax.swing.JButton btnCetakPertumbuhanPenduduk;
     private de.wannawork.jcalendar.JCalendarComboBox calendarTanggalPertumbuhanPenduduk;
     private javax.swing.JComboBox comboBoxBulan;
+    private javax.swing.JComboBox comboBoxKeadaanPendudukBulan;
+    private javax.swing.JComboBox comboBoxKeadaanPendudukTahun;
     private javax.swing.JComboBox comboBoxTahun;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -209,6 +276,9 @@ public class LaporanView extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField txtKepalaDesaSugeng;
     // End of variables declaration//GEN-END:variables
 }

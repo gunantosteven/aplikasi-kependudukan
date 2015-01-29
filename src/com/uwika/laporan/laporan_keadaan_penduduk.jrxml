@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="laporan_keadaan_penduduk" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="af646e42-8a4e-40bc-9abd-5d578548e73a">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="tahun" class="java.lang.Long"/>
+	<parameter name="bulan" class="java.lang.String"/>
+	<parameter name="kepalaDesa" class="java.lang.String"/>
+	<parameter name="bulanAngka" class="java.lang.Long"/>
+	<queryString>
+		<![CDATA[select d.namaLengkap, d.jenisKelamin, d.agama, d.pekerjaan, m.tanggal, m.keterangan from data_penduduk d inner join mutasi m on d.nik = m.nik where YEAR(m.tanggal) = $P{tahun} AND MONTH(m.tanggal) = $P{bulanAngka}]]>
+	</queryString>
+	<field name="namaLengkap" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="jenisKelamin" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="agama" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="pekerjaan" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tanggal" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="keterangan" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="20" uuid="21f7ff20-e9fc-4e11-9415-e31a131babdc"/>
+				<text><![CDATA[namaLengkap]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="117" y="2" width="100" height="20" uuid="c4b9235d-da02-4562-a7e1-9e7b4ceb3ee5"/>
+				<text><![CDATA[jenisKelamin]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="232" y="2" width="100" height="20" uuid="3791af40-2e67-430d-ad79-425f8b2319c5"/>
+				<text><![CDATA[agama]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="347" y="2" width="100" height="20" uuid="1ff5d1c2-fb8a-4351-a8dd-b5ded0221227"/>
+				<text><![CDATA[pekerjaan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="467" y="2" width="100" height="20" uuid="8a018265-2e37-4502-9053-c04bd6b58cf7"/>
+				<text><![CDATA[tanggal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="587" y="2" width="100" height="20" uuid="0f515b54-2dd4-4e19-8489-83ca253b4e94"/>
+				<text><![CDATA[keterangan]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="20" uuid="ad9daf7c-9ca6-4dd0-9d1a-92eed4b1eee8"/>
+				<textFieldExpression><![CDATA[$F{namaLengkap}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="117" y="0" width="100" height="20" uuid="99f8d9fa-4c8e-4af5-b697-69f4997b9b04"/>
+				<textFieldExpression><![CDATA[$F{jenisKelamin}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="232" y="0" width="100" height="20" uuid="219d7dc0-97ff-4738-ba4b-1b26208ba4be"/>
+				<textFieldExpression><![CDATA[$F{agama}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="347" y="0" width="100" height="20" uuid="6338d0d4-526c-43fa-aaa6-248ab2a35a61"/>
+				<textFieldExpression><![CDATA[$F{pekerjaan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="467" y="0" width="100" height="20" uuid="6cabbf93-b769-428c-a2bf-5584bb351ae6"/>
+				<textFieldExpression><![CDATA[$F{tanggal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="587" y="0" width="100" height="20" uuid="7ddf4cd1-db0e-4339-83a8-536d25b2de9c"/>
+				<textFieldExpression><![CDATA[$F{keterangan}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<lastPageFooter>
+		<band height="50">
+			<textField>
+				<reportElement x="702" y="13" width="100" height="20" uuid="4be5bf93-682c-47f1-8fe5-8dccd2e2c6ba"/>
+				<textFieldExpression><![CDATA[$P{kepalaDesa}]]></textFieldExpression>
+			</textField>
+		</band>
+	</lastPageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

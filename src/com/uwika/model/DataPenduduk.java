@@ -28,11 +28,12 @@ public class DataPenduduk {
     private String alamatLengkap;
     private String kedudukanDalamKeluarga;
     private String keterangan;
+    private String status;
 
     public DataPenduduk() {
     }
 
-    public DataPenduduk(String nik, String kk, String namaLengkap, JenisKelamin jenisKelamin, StatusKawin statusKawin, String tempatLahir, Date tanggalLahir, String agama, String pendidikanTerakhir, String pekerjaan, String kewarganegaraan, String alamatLengkap, String kedudukanDalamKeluarga, String keterangan) {
+    public DataPenduduk(String nik, String kk, String namaLengkap, JenisKelamin jenisKelamin, StatusKawin statusKawin, String tempatLahir, Date tanggalLahir, String agama, String pendidikanTerakhir, String pekerjaan, String kewarganegaraan, String alamatLengkap, String kedudukanDalamKeluarga, String keterangan, String status) {
         this.nik = nik;
         this.kk = kk;
         this.namaLengkap = namaLengkap;
@@ -47,6 +48,15 @@ public class DataPenduduk {
         this.alamatLengkap = alamatLengkap;
         this.kedudukanDalamKeluarga = kedudukanDalamKeluarga;
         this.keterangan = keterangan;
+        this.status = status;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public String getAgama() {
