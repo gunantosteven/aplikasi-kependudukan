@@ -24,7 +24,7 @@ public class Main {
     {
         KoneksiMySQL.koneksi();
         MutasiService mutasiService = new MutasiService();
-        mutasiService.insert(new Mutasi(null, "zxc", "zxvzxvzxv", new Date(0),"zxc"));
+        mutasiService.insert(new Mutasi(null, "zxc", "zxvzxvzxv", new Date(0),"LAHIR"));
         new Menu().setVisible(true);
     }
 }

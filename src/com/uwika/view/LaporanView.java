@@ -55,6 +55,10 @@ public class LaporanView extends javax.swing.JPanel {
         txtKepalaDesaSugeng = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         comboBoxTahun = new javax.swing.JComboBox();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        calendarTanggalPertumbuhanPenduduk = new de.wannawork.jcalendar.JCalendarComboBox();
+        btnCetakPertumbuhanPenduduk = new javax.swing.JButton();
 
         jLabel1.setText("Laporan Penduduk Pindah / Datang Dan Mati");
 
@@ -74,6 +78,17 @@ public class LaporanView extends javax.swing.JPanel {
         txtKepalaDesaSugeng.setText("MISMANDONO");
 
         jLabel4.setText("Tahun :");
+
+        jLabel5.setText("Laporan Pertumbuhan Penduduk");
+
+        jLabel6.setText("Tanggal");
+
+        btnCetakPertumbuhanPenduduk.setText("Cetak");
+        btnCetakPertumbuhanPenduduk.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCetakPertumbuhanPendudukActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -98,9 +113,18 @@ public class LaporanView extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(txtKepalaDesaSugeng, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(comboBoxTahun, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnCetakPertumbuhanPenduduk)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel4)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(comboBoxTahun, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jLabel5)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel6)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(calendarTanggalPertumbuhanPenduduk, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -122,7 +146,15 @@ public class LaporanView extends javax.swing.JPanel {
                     .addComponent(comboBoxTahun, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(16, 16, 16)
                 .addComponent(btnCetakPendudukPindahDatangMati)
-                .addContainerGap(340, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6)
+                    .addComponent(calendarTanggalPertumbuhanPenduduk, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnCetakPertumbuhanPenduduk)
+                .addContainerGap(224, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -148,15 +180,35 @@ public class LaporanView extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnCetakPendudukPindahDatangMatiActionPerformed
 
+    private void btnCetakPertumbuhanPendudukActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCetakPertumbuhanPendudukActionPerformed
+        // TODO add your handling code here:
+        try{
+                    JasperDesign jasperDesign = JRXmlLoader.load(LaporanView.class.getResourceAsStream("/com/uwika/laporan/laporan_pertumbuhan_penduduk.jrxml"));
+	            HashMap<String,Object> param = new HashMap<String,Object>();
+                    param.put("tanggal", calendarTanggalPertumbuhanPenduduk.getDate());
+                    param.put("kepalaDesa", txtKepalaDesaSugeng.getText());
+	            JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
+	            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport,param, KoneksiMySQL.getConnection());
+	            JasperViewer.viewReport(jasperPrint,false);
+        }catch (Exception e){
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }//GEN-LAST:event_btnCetakPertumbuhanPendudukActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCetakPendudukPindahDatangMati;
+    private javax.swing.JButton btnCetakPertumbuhanPenduduk;
+    private de.wannawork.jcalendar.JCalendarComboBox calendarTanggalPertumbuhanPenduduk;
     private javax.swing.JComboBox comboBoxBulan;
     private javax.swing.JComboBox comboBoxTahun;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JTextField txtKepalaDesaSugeng;
     // End of variables declaration//GEN-END:variables
 }

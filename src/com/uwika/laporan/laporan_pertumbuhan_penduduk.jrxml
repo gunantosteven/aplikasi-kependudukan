@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="laporan_pertumbuhan_penduduk" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e6666f19-c299-4cd2-ab26-442a9dc05c88">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="116"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="Table Dataset 1" uuid="a7231c35-343f-44a4-a3e8-5fb5bc77c809"/>
+	<parameter name="tanggal" class="java.util.Date">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="kepalaDesa" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select
+	   (select COUNT(jenisKelamin) from `data_penduduk` where jenisKelamin = 'PRIA') as laki,
+
+	   (select COUNT(jenisKelamin) from `data_penduduk` where jenisKelamin = 'WANITA') as perempuan,
+
+	   (select COUNT(jenisKelamin)  from `data_penduduk`) as jumlah,
+
+	   (SELECT COUNT(count) as jumlahKK FROM (SELECT COUNT(kk) AS count
+	   FROM `data_penduduk`
+       GROUP BY kk) as A) as jumlahKK,
+
+       (select COUNT(usia) from (select (YEAR(current_date()) - YEAR(tanggalLahir)) as usia from `data_penduduk`) as A where usia >= 0 && usia <= 14) as usia0sampai14,
+
+       (select COUNT(usia) from (select (YEAR(current_date()) - YEAR(tanggalLahir)) as usia from `data_penduduk`) as A where usia >= 15 && usia <= 64) as usia15sampai64,
+
+       (select COUNT(usia) from (select (YEAR(current_date()) - YEAR(tanggalLahir)) as usia from `data_penduduk`) as A where usia >= 65) as usia65keatas,
+
+       (select COUNT(keterangan) as lahir from `mutasi` where keterangan = 'LAHIR') as lahir,
+
+       (select COUNT(keterangan) as mari from `mutasi` where keterangan = 'MATI') as mati]]>
+	</queryString>
+	<field name="laki" class="java.lang.Long"/>
+	<field name="perempuan" class="java.lang.Long"/>
+	<field name="jumlah" class="java.lang.Long"/>
+	<field name="jumlahKK" class="java.lang.Long"/>
+	<field name="usia0sampai14" class="java.lang.Long"/>
+	<field name="usia15sampai64" class="java.lang.Long"/>
+	<field name="usia65keatas" class="java.lang.Long"/>
+	<field name="lahir" class="java.lang.Long"/>
+	<field name="mati" class="java.lang.Long"/>
+	<variable name="PertumbuhanPenduduk" class="java.lang.Double">
+		<variableExpression><![CDATA[$F{lahir} - $F{mati} * 100/100]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="42" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="2" width="100" height="20" uuid="4f9f10b3-c516-4f49-ba67-e54b27a18d00"/>
+				<text><![CDATA[laki]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="2" width="100" height="20" uuid="a90a6395-9cb0-4b74-af83-7f1f93c4d49d"/>
+				<text><![CDATA[perempuan]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="200" y="2" width="100" height="20" uuid="b31e27b5-b9f2-4a66-92d6-0a869cebd3cc"/>
+				<text><![CDATA[jumlah]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="300" y="2" width="100" height="20" uuid="f0e45218-9447-45df-a489-982c0504c36e"/>
+				<text><![CDATA[jumlahKK]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="501" y="0" width="100" height="20" uuid="421c2df8-6c28-442c-b23a-d25a2e365a61"/>
+				<text><![CDATA[usia0sampai14]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="601" y="0" width="100" height="20" uuid="8aa2b119-75b8-4e34-ace3-b837cafcd3c7"/>
+				<text><![CDATA[usia15sampai64]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="702" y="0" width="100" height="20" uuid="db1cfc70-945b-4fd9-9ad2-ce762c90566a"/>
+				<text><![CDATA[usia65keatas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="401" y="2" width="100" height="40" uuid="357a69ce-5075-423e-ae06-12ba5bea72f9"/>
+				<text><![CDATA[Pertumbuhan Penduduk]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="100" height="20" uuid="8aa0b92a-d905-4ea0-bdc1-0a4c413eb118"/>
+				<textFieldExpression><![CDATA[$F{laki}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="0" width="100" height="20" uuid="d6a5409a-9611-44c9-9154-a9bc4860c443"/>
+				<textFieldExpression><![CDATA[$F{perempuan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="200" y="0" width="100" height="20" uuid="ff23eb19-2d72-4ce3-b663-12a7f0cc85c3"/>
+				<textFieldExpression><![CDATA[$F{jumlah}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="300" y="0" width="100" height="20" uuid="229eb161-74f3-4151-918b-7f3ec1d5065c"/>
+				<textFieldExpression><![CDATA[$F{jumlahKK}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="501" y="0" width="100" height="20" uuid="82b42700-8ade-4423-887d-908ebc167823"/>
+				<textFieldExpression><![CDATA[$F{usia0sampai14}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="601" y="0" width="100" height="20" uuid="f4e149af-f423-4745-996c-716ef927a01f"/>
+				<textFieldExpression><![CDATA[$F{usia15sampai64}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="701" y="0" width="100" height="20" uuid="6cb3a627-18ff-4255-9ec1-d8156d0bb3da"/>
+				<textFieldExpression><![CDATA[$F{usia65keatas}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="401" y="0" width="100" height="20" uuid="045f43ec-897e-45d8-b6dc-ba3436442eed"/>
+				<textFieldExpression><![CDATA[$V{PertumbuhanPenduduk}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd MMMMM yyyy">
+				<reportElement x="639" y="89" width="150" height="20" uuid="72566c19-699c-4a85-91db-3fe10f6667d0"/>
+				<textFieldExpression><![CDATA[$P{tanggal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="656" y="42" width="100" height="20" uuid="8d0e6f96-d2be-425a-84e7-8a5a5f459ac7"/>
+				<textFieldExpression><![CDATA[$P{kepalaDesa}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

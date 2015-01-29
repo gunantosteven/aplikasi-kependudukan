@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="laporan_penduduk_mutasi" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c5142516-22c1-4e75-ad61-2f912ba14d46">
 	<property name="ireport.zoom" value="1.2100000000000053"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="214"/>
 	<parameter name="bulan" class="java.lang.String"/>
 	<parameter name="kepalaDesa" class="java.lang.String"/>
 	<parameter name="tahun" class="java.lang.String"/>
@@ -175,32 +175,35 @@
 		<band splitType="Stretch"/>
 	</columnFooter>
 	<pageFooter>
-		<band height="147" splitType="Stretch">
+		<band height="1" splitType="Stretch"/>
+	</pageFooter>
+	<lastPageFooter>
+		<band height="170">
 			<staticText>
-				<reportElement x="364" y="11" width="100" height="20" uuid="b2d69209-e5b8-4f91-b644-288ac81dcb3f"/>
+				<reportElement x="335" y="33" width="100" height="20" uuid="b2d69209-e5b8-4f91-b644-288ac81dcb3f"/>
 				<textElement textAlignment="Center">
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[Mengetahui]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="354" y="31" width="126" height="20" uuid="bcb9f760-d4c4-4828-9d2a-caa67dca75f1"/>
+				<reportElement x="325" y="53" width="126" height="20" uuid="bcb9f760-d4c4-4828-9d2a-caa67dca75f1"/>
 				<textElement>
 					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[Kepala Desa Sugeng]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="336" y="125" width="163" height="20" uuid="b36eb6b6-0fa7-4530-960b-1ab2fd99da38"/>
+				<reportElement x="307" y="147" width="163" height="20" uuid="b36eb6b6-0fa7-4530-960b-1ab2fd99da38"/>
 				<textElement textAlignment="Center">
 					<font size="12" isBold="true" isUnderline="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{kepalaDesa}]]></textFieldExpression>
 			</textField>
 		</band>
-	</pageFooter>
+	</lastPageFooter>
 	<summary>
-		<band height="8" splitType="Stretch">
+		<band height="20" splitType="Stretch">
 			<line>
 				<reportElement x="0" y="0" width="556" height="1" uuid="ff98a829-50bc-4a2b-b5d8-c8c28c0d0e40"/>
 			</line>

@@ -53,7 +53,7 @@ public class DataPendudukView extends javax.swing.JPanel {
         dataPenduduk.setTanggalLahir(new Date(calendarTanggalLahir.getDate().getTime()));
         dataPenduduk.setAgama(txtAgama.getText());
         dataPenduduk.setPendidikanTerakhir(txtPendidikan.getText());
-        dataPenduduk.setPekerjaan(txtPekerjaan.getText());
+        dataPenduduk.setPekerjaan(comboBoxPekerjaan.getSelectedItem().toString());
         dataPenduduk.setKewarganegaraan(txtKewarganegaraan.getText());
         dataPenduduk.setAlamatLengkap(txtAlamat.getText());
         dataPenduduk.setKedudukanDalamKeluarga(txtKedudukan.getText());
@@ -71,7 +71,7 @@ public class DataPendudukView extends javax.swing.JPanel {
         calendarTanggalLahir.setDate(new java.util.Date(dataPenduduk.getTanggalLahir().getTime()));
         txtAgama.setText(dataPenduduk.getAgama());
         txtPendidikan.setText(dataPenduduk.getPendidikanTerakhir());
-        txtPekerjaan.setText(dataPenduduk.getPekerjaan());
+        comboBoxPekerjaan.setSelectedItem(dataPenduduk.getPekerjaan());
         txtKewarganegaraan.setText(dataPenduduk.getKewarganegaraan());
         txtAlamat.setText(dataPenduduk.getAlamatLengkap());
         txtKedudukan.setText(dataPenduduk.getKedudukanDalamKeluarga());
@@ -94,7 +94,6 @@ public class DataPendudukView extends javax.swing.JPanel {
         txtKewarganegaraan.setText("");
         txtNIK.setText("");
         txtNamaLengkap.setText("");
-        txtPekerjaan.setText("");
         txtPendidikan.setText("");
         txtTempatLahir.setText("");
         txtNIK.setEditable(true);
@@ -222,7 +221,6 @@ public class DataPendudukView extends javax.swing.JPanel {
         txtTempatLahir = new javax.swing.JTextField();
         txtAgama = new javax.swing.JTextField();
         txtPendidikan = new javax.swing.JTextField();
-        txtPekerjaan = new javax.swing.JTextField();
         txtKewarganegaraan = new javax.swing.JTextField();
         txtAlamat = new javax.swing.JTextField();
         txtKedudukan = new javax.swing.JTextField();
@@ -238,6 +236,7 @@ public class DataPendudukView extends javax.swing.JPanel {
         calendarTanggalLahir = new de.wannawork.jcalendar.JCalendarComboBox();
         btnUpdate = new javax.swing.JButton();
         btnClear = new javax.swing.JButton();
+        comboBoxPekerjaan = new javax.swing.JComboBox();
 
         addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentShown(java.awt.event.ComponentEvent evt) {
@@ -340,6 +339,8 @@ public class DataPendudukView extends javax.swing.JPanel {
             }
         });
 
+        comboBoxPekerjaan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ABRI", "PEGAWAI NEGERI", "KARYAWAN", "TANI", "PEDAGANG", "BURUH TANI", "PERTUKANGAN", "PENSIUNAN", "LAIN-LAIN" }));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -371,7 +372,6 @@ public class DataPendudukView extends javax.swing.JPanel {
                     .addComponent(txtTempatLahir, javax.swing.GroupLayout.DEFAULT_SIZE, 299, Short.MAX_VALUE)
                     .addComponent(txtAgama)
                     .addComponent(txtPendidikan)
-                    .addComponent(txtPekerjaan)
                     .addComponent(txtKewarganegaraan)
                     .addComponent(txtAlamat)
                     .addComponent(txtKedudukan)
@@ -384,7 +384,8 @@ public class DataPendudukView extends javax.swing.JPanel {
                         .addComponent(btnDelete)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnClear))
-                    .addComponent(calendarTanggalLahir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(calendarTanggalLahir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(comboBoxPekerjaan, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(86, 86, 86)
@@ -445,8 +446,8 @@ public class DataPendudukView extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel9)
-                            .addComponent(txtPekerjaan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(comboBoxPekerjaan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel10)
                             .addComponent(txtKewarganegaraan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -468,7 +469,7 @@ public class DataPendudukView extends javax.swing.JPanel {
                             .addComponent(btnDelete)
                             .addComponent(btnUpdate)
                             .addComponent(btnClear))
-                        .addGap(0, 52, Short.MAX_VALUE))))
+                        .addGap(0, 58, Short.MAX_VALUE))))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -545,6 +546,7 @@ public class DataPendudukView extends javax.swing.JPanel {
     private javax.swing.JButton btnSave;
     private javax.swing.JButton btnUpdate;
     private de.wannawork.jcalendar.JCalendarComboBox calendarTanggalLahir;
+    private javax.swing.JComboBox comboBoxPekerjaan;
     private javax.swing.JComboBox comboJenisKelamin;
     private javax.swing.JComboBox comboStatus;
     private javax.swing.JLabel jLabel1;
@@ -573,7 +575,6 @@ public class DataPendudukView extends javax.swing.JPanel {
     private javax.swing.JTextField txtKewarganegaraan;
     private javax.swing.JTextField txtNIK;
     private javax.swing.JTextField txtNamaLengkap;
-    private javax.swing.JTextField txtPekerjaan;
     private javax.swing.JTextField txtPendidikan;
     private javax.swing.JTextField txtTempatLahir;
     // End of variables declaration//GEN-END:variables
