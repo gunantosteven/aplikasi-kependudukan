@@ -188,6 +188,7 @@ public class MutasiView extends javax.swing.JPanel {
         calendarTanggal = new de.wannawork.jcalendar.JCalendarComboBox();
         btnUpdate = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
+        btnClear = new javax.swing.JButton();
 
         jLabel1.setText("NIK");
 
@@ -230,6 +231,7 @@ public class MutasiView extends javax.swing.JPanel {
         jLabel5.setText("Pencarian");
 
         btnUpdate.setText("UPDATE");
+        btnUpdate.setEnabled(false);
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUpdateActionPerformed(evt);
@@ -237,9 +239,17 @@ public class MutasiView extends javax.swing.JPanel {
         });
 
         btnDelete.setText("DELETE");
+        btnDelete.setEnabled(false);
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeleteActionPerformed(evt);
+            }
+        });
+
+        btnClear.setText("CLEAR");
+        btnClear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClearActionPerformed(evt);
             }
         });
 
@@ -269,7 +279,9 @@ public class MutasiView extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnUpdate)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnDelete)))
+                        .addComponent(btnDelete)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnClear)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(127, 127, 127)
@@ -313,7 +325,8 @@ public class MutasiView extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnSave)
                             .addComponent(btnUpdate)
-                            .addComponent(btnDelete))))
+                            .addComponent(btnDelete)
+                            .addComponent(btnClear))))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -327,6 +340,10 @@ public class MutasiView extends javax.swing.JPanel {
                 mutasi = new Mutasi();
             }
             FormToModel();
+            if(comboKeterangan.getSelectedItem().toString().equals("MATI"))
+            {
+                ds.updateStatusKematian(mutasi.getNik(), "MATI");
+            }
             if(ms.insert(mutasi))
             {
                 refreshTable();
@@ -346,6 +363,10 @@ public class MutasiView extends javax.swing.JPanel {
                 mutasi = new Mutasi();
             }
             FormToModel();
+            if(comboKeterangan.getSelectedItem().toString().equals("MATI"))
+            {
+                ds.updateStatusKematian(mutasi.getNik(), "MATI");
+            }
             if(ms.update(Long.parseLong(jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString()),mutasi))
             {
                 refreshTable();
@@ -378,7 +399,17 @@ public class MutasiView extends javax.swing.JPanel {
         jTable1.setModel(new MutasiView.MutasiTableModel(listMutasi));
     }//GEN-LAST:event_searchKeyReleased
 
+    private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
+        // TODO add your handling code here:
+        refreshTable();
+        refresh();
+        btnSave.setEnabled(true);
+        btnUpdate.setEnabled(false);
+        btnDelete.setEnabled(false);
+    }//GEN-LAST:event_btnClearActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnClear;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnSave;
     private javax.swing.JButton btnUpdate;

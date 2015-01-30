@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jan 29, 2015 at 02:17 
+-- Generation Time: Jan 30, 2015 at 01:39 
 -- Server version: 5.5.36
 -- PHP Version: 5.4.27
 
@@ -50,9 +50,10 @@ CREATE TABLE IF NOT EXISTS `data_penduduk` (
 --
 
 INSERT INTO `data_penduduk` (`nik`, `namaLengkap`, `jenisKelamin`, `statusKawin`, `tempatLahir`, `tanggalLahir`, `agama`, `pendidikanTerakhir`, `pekerjaan`, `kewarganegaraan`, `alamatLengkap`, `kedudukanDalamKeluarga`, `kk`, `keterangan`, `status`) VALUES
-('12312312', 'steven', 'WANITA', 'KAWIN', 'asfasf', '1930-01-29', 'asfasf', 'asfasfas', 'ABRI', 'asfasf', 'asfasf', 'BAPAK', 'asdf', 'asfasf', 'Hidup'),
-('asd', 'asd', 'PRIA', 'KAWIN', 'asd', '2015-01-01', 'asd', 'asd', 'ABRI', 'asd', 'asd', 'IBU', 'asdf', 'asd', 'Hidup'),
-('zxc', 'zxc', 'WANITA', 'KAWIN', 'zxc', '1994-01-28', 'zxc', 'zxc', 'LAIN-LAIN', 'zxc', 'zxc', 'ANAK', 'zxc', 'zxc', 'Mati');
+('12312312', 'steven', 'PRIA', 'KAWIN', 'asfasf', '1930-01-29', 'asfasf', 'asfasfas', 'ABRI', 'WNA', 'asfasf', 'BAPAK', 'asdf', 'asfasf', 'Hidup'),
+('asd', 'asd', 'PRIA', 'KAWIN', 'asd', '2015-01-01', 'asd', 'asd', 'PEGAWAI NEGERI', 'WNA', 'asd', 'IBU', 'asdf', 'asd', 'MATI'),
+('bbb', 'bbb', 'PRIA', 'KAWIN', 'aasd', '2015-01-01', 'asfasf', 'asfasfasf', 'PEDAGANG', 'WNI', 'asfasf', 'IBU', 'bb', 'afasf', 'Hidup'),
+('zxc', 'zxc', 'WANITA', 'KAWIN', 'zxc', '1994-01-28', 'zxc', 'zxc', 'LAIN-LAIN', 'WNI', 'zxc', 'ANAK', 'asdf', 'zxc', 'MATI');
 
 -- --------------------------------------------------------
 
@@ -68,30 +69,15 @@ CREATE TABLE IF NOT EXISTS `mutasi` (
   `keterangan` varchar(100) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `nik` (`nik`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=69 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=76 ;
 
 --
 -- Dumping data for table `mutasi`
 --
 
 INSERT INTO `mutasi` (`id`, `nik`, `tempat`, `tanggal`, `keterangan`) VALUES
-(51, 'zxc', 'zxvzxvzxv', '1970-01-01', 'LAHIR'),
-(52, 'zxc', 'zxvzxvzxv', '1970-01-01', 'LAHIR'),
-(53, 'zxc', 'zxvzxvzxv', '1970-01-01', 'LAHIR'),
-(54, 'zxc', 'zxvzxvzxv', '1970-01-01', 'LAHIR'),
-(55, 'zxc', 'zxvzxvzxv', '1970-01-01', 'LAHIR'),
-(57, 'zxc', 'zxvzxvzxv', '1970-01-01', 'LAHIR'),
-(58, 'zxc', 'zxvzxvzxv', '1970-01-01', 'LAHIR'),
-(59, 'zxc', 'zxvzxvzxv', '1970-01-01', 'LAHIR'),
-(60, 'zxc', 'zxvzxvzxv', '1970-01-01', 'LAHIR'),
-(61, 'zxc', 'zxvzxvzxv', '1970-01-01', 'LAHIR'),
-(62, 'zxc', 'zxvzxvzxv', '1970-01-01', 'LAHIR'),
-(63, 'zxc', 'zxvzxvzxv', '1970-01-01', 'LAHIR'),
-(64, 'zxc', 'zxvzxvzxv', '1970-01-01', 'LAHIR'),
-(65, 'zxc', 'zxvzxvzxv', '1970-01-01', 'LAHIR'),
-(66, 'zxc', 'zxvzxvzxv', '1970-01-01', 'LAHIR'),
-(67, 'zxc', 'zxvzxvzxv', '1970-01-01', 'LAHIR'),
-(68, 'zxc', 'zxvzxvzxv', '1970-01-01', 'LAHIR');
+(73, 'zxc', 'surabaya', '1970-02-01', 'MATI'),
+(75, 'asd', 'asd', '1970-02-01', 'MATI');
 
 --
 -- Constraints for dumped tables

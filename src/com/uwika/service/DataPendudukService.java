@@ -240,4 +240,27 @@ public class DataPendudukService {
         
         return listDataPenduduk;
     }
+    
+    public boolean updateStatusKematian(String nik, String status)
+    {
+            PreparedStatement preparedStatement = null;
+            boolean cek=true;
+           try{
+             preparedStatement = KoneksiMySQL.getConnection().prepareStatement
+                                 ("UPDATE data_penduduk SET status = ? WHERE nik = ?");
+             preparedStatement.setString(1,status);
+             preparedStatement.setString(2, nik);
+               
+             preparedStatement.executeUpdate();
+           }
+           catch(Exception z){
+               JOptionPane.showMessageDialog(null,"Update Data Gagal ??? \n"+ z.getMessage());
+               cek=false;
+           }
+           finally
+           {
+                   try { preparedStatement.close(); } catch (SQLException logOrIgnore) {}
+           }
+           return cek;
+    }
 }

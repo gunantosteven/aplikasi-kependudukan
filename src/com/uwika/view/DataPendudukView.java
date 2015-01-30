@@ -349,7 +349,7 @@ public class DataPendudukView extends javax.swing.JPanel {
 
         jLabel16.setText("Status");
 
-        comboBoxStatus.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Hidup", "Mati" }));
+        comboBoxStatus.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "HIDUP", "MATI" }));
 
         comboBoxKedudukanDalamKeluarga.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "BAPAK", "IBU", "ANAK" }));
 
@@ -400,9 +400,8 @@ public class DataPendudukView extends javax.swing.JPanel {
                     .addComponent(calendarTanggalLahir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(comboBoxStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(comboBoxKedudukanDalamKeluarga, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(comboBoxKewarganegaraan, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(comboBoxPekerjaan, javax.swing.GroupLayout.Alignment.LEADING, 0, 254, Short.MAX_VALUE)))
+                    .addComponent(comboBoxKewarganegaraan, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(comboBoxPekerjaan, 0, 254, Short.MAX_VALUE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(86, 86, 86)
