@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="laporan_umum_tenaga_kerja_wanita_subreport" language="groovy" pageWidth="802" pageHeight="555" orientation="Landscape" columnWidth="802" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="67a506b8-0198-4947-9281-c847cdbd9198">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="pekerjaan" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select
+(select COUNT(usia) from (select (YEAR(current_date()) - YEAR(tanggalLahir)) as usia, pekerjaan as pekerjaan from `data_penduduk` where status = 'HIDUP' && jenisKelamin = 'WANITA' && kewarganegaraan = 'WNI' ) as A where usia >= 0 AND usia <= 17 AND pekerjaan = d.pekerjaan ) as usia0sampai17WNI,
+
+(select COUNT(usia) from (select (YEAR(current_date()) - YEAR(tanggalLahir)) as usia, pekerjaan as pekerjaan from `data_penduduk` where status = 'HIDUP' && jenisKelamin = 'WANITA' && kewarganegaraan = 'WNA' ) as A where usia >= 0 AND usia <= 17 AND pekerjaan = d.pekerjaan ) as usia0sampai17WNA,
+
+(select COUNT(usia) from (select (YEAR(current_date()) - YEAR(tanggalLahir)) as usia, pekerjaan as pekerjaan from `data_penduduk` where status = 'HIDUP' && jenisKelamin = 'WANITA' && kewarganegaraan = 'WNI' ) as A where usia >= 18 AND usia <= 23 AND pekerjaan = d.pekerjaan  ) as usia18sampai23WNI,
+
+(select COUNT(usia) from (select (YEAR(current_date()) - YEAR(tanggalLahir)) as usia, pekerjaan as pekerjaan from `data_penduduk` where status = 'HIDUP' && jenisKelamin = 'WANITA' && kewarganegaraan = 'WNA' ) as A where usia >= 18 AND usia <= 23 AND pekerjaan = d.pekerjaan  ) as usia18sampai23WNA,
+
+(select COUNT(usia) from (select (YEAR(current_date()) - YEAR(tanggalLahir)) as usia, pekerjaan as pekerjaan from `data_penduduk` where status = 'HIDUP' && jenisKelamin = 'WANITA' && kewarganegaraan = 'WNI' ) as A where usia >= 24 AND usia <= 30 AND pekerjaan = d.pekerjaan  ) as usia24sampai30WNI,
+
+(select COUNT(usia) from (select (YEAR(current_date()) - YEAR(tanggalLahir)) as usia, pekerjaan as pekerjaan from `data_penduduk` where status = 'HIDUP' && jenisKelamin = 'WANITA' && kewarganegaraan = 'WNA' ) as A where usia >= 24 AND usia <= 30 AND pekerjaan = d.pekerjaan  ) as usia24sampai30WNA,
+
+(select COUNT(usia) from (select (YEAR(current_date()) - YEAR(tanggalLahir)) as usia, pekerjaan as pekerjaan from `data_penduduk` where status = 'HIDUP' && jenisKelamin = 'WANITA' && kewarganegaraan = 'WNI' ) as A where usia >= 31 AND usia <= 40 AND pekerjaan = d.pekerjaan  ) as usia31sampai40WNI,
+
+(select COUNT(usia) from (select (YEAR(current_date()) - YEAR(tanggalLahir)) as usia, pekerjaan as pekerjaan from `data_penduduk` where status = 'HIDUP' && jenisKelamin = 'WANITA' && kewarganegaraan = 'WNA' ) as A where usia >= 31 AND usia <= 40 AND pekerjaan = d.pekerjaan  ) as usia31sampai40WNA,
+
+(select COUNT(usia) from (select (YEAR(current_date()) - YEAR(tanggalLahir)) as usia, pekerjaan as pekerjaan from `data_penduduk` where status = 'HIDUP' && jenisKelamin = 'WANITA' && kewarganegaraan = 'WNI' ) as A where usia >= 41 AND usia <= 56 AND pekerjaan = d.pekerjaan  ) as usia41sampai56WNI,
+
+(select COUNT(usia) from (select (YEAR(current_date()) - YEAR(tanggalLahir)) as usia, pekerjaan as pekerjaan from `data_penduduk` where status = 'HIDUP' && jenisKelamin = 'WANITA' && kewarganegaraan = 'WNA' ) as A where usia >= 41 AND usia <= 56 AND pekerjaan = d.pekerjaan  ) as usia41sampai56WNA,
+
+
+(select COUNT(usia) from (select (YEAR(current_date()) - YEAR(tanggalLahir)) as usia, pekerjaan as pekerjaan from `data_penduduk` where status = 'HIDUP' && jenisKelamin = 'PRIA' && kewarganegaraan = 'WNI' ) as A where usia >= 57 AND pekerjaan = d.pekerjaan  ) as usia57keatasWNI,
+
+(select COUNT(usia) from (select (YEAR(current_date()) - YEAR(tanggalLahir)) as usia, pekerjaan as pekerjaan from `data_penduduk` where status = 'HIDUP' && jenisKelamin = 'PRIA' && kewarganegaraan = 'WNA' ) as A where usia >= 57 AND pekerjaan = d.pekerjaan  ) as usia57keatasWNA,
+
+(select COUNT(nik) from data_penduduk where status = 'HIDUP' && jenisKelamin = 'PRIA' AND pekerjaan = d.pekerjaan) as total,
+
+pekerjaan
+
+from data_penduduk d where jenisKelamin = 'WANITA' group by pekerjaan]]>
+	</queryString>
+	<field name="usia0sampai17WNI" class="java.lang.Long"/>
+	<field name="usia0sampai17WNA" class="java.lang.Long"/>
+	<field name="usia18sampai23WNI" class="java.lang.Long"/>
+	<field name="usia18sampai23WNA" class="java.lang.Long"/>
+	<field name="usia24sampai30WNI" class="java.lang.Long"/>
+	<field name="usia24sampai30WNA" class="java.lang.Long"/>
+	<field name="usia31sampai40WNI" class="java.lang.Long"/>
+	<field name="usia31sampai40WNA" class="java.lang.Long"/>
+	<field name="usia41sampai56WNI" class="java.lang.Long"/>
+	<field name="usia41sampai56WNA" class="java.lang.Long"/>
+	<field name="usia57keatasWNI" class="java.lang.Long"/>
+	<field name="usia57keatasWNA" class="java.lang.Long"/>
+	<field name="total" class="java.lang.Long"/>
+	<field name="pekerjaan" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<textField>
+				<reportElement x="604" y="0" width="50" height="20" uuid="6b9ed00b-738d-46b7-a7e1-932871dde170"/>
+				<textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="1" width="100" height="20" uuid="91e68063-b828-481f-9818-9a66322b55f3"/>
+				<textFieldExpression><![CDATA[$F{pekerjaan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="0" width="42" height="20" uuid="cf707848-7427-42f5-a4a0-49c3e4014e21"/>
+				<textFieldExpression><![CDATA[$F{usia0sampai17WNI}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="142" y="0" width="42" height="20" uuid="3a6440e0-5b72-42c1-b46f-7153691fb4c1"/>
+				<textFieldExpression><![CDATA[$F{usia0sampai17WNA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="184" y="0" width="42" height="20" uuid="839d1bad-3ed1-411b-b9ce-ba629c61a5d6"/>
+				<textFieldExpression><![CDATA[$F{usia18sampai23WNI}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="226" y="0" width="42" height="20" uuid="2cfa17cb-6bab-4437-ae71-a0a5bb39e3c0"/>
+				<textFieldExpression><![CDATA[$F{usia18sampai23WNA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="268" y="1" width="42" height="20" uuid="9229ce6b-f078-4d5f-9c41-6d5a4254f068"/>
+				<textFieldExpression><![CDATA[$F{usia24sampai30WNI}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="310" y="1" width="42" height="20" uuid="90464213-3278-4051-b641-dbca0de4abf9"/>
+				<textFieldExpression><![CDATA[$F{usia24sampai30WNA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="352" y="1" width="42" height="20" uuid="12e82e60-68bb-46a3-ac6c-f5ac3569b623"/>
+				<textFieldExpression><![CDATA[$F{usia31sampai40WNI}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="394" y="1" width="42" height="20" uuid="02da81bb-67b0-409d-9112-91cfed9d0781"/>
+				<textFieldExpression><![CDATA[$F{usia31sampai40WNA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="436" y="0" width="42" height="20" uuid="da3582b4-eadf-40c6-af0e-3738cae5e56e"/>
+				<textFieldExpression><![CDATA[$F{usia41sampai56WNI}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="478" y="0" width="42" height="20" uuid="2c995a7c-176f-435a-a114-3948611730e9"/>
+				<textFieldExpression><![CDATA[$F{usia41sampai56WNA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="520" y="0" width="42" height="20" uuid="d8884f66-d1b5-4683-90b1-4b9ee1b3e6ae"/>
+				<textFieldExpression><![CDATA[$F{usia57keatasWNI}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="562" y="0" width="42" height="20" uuid="81663cb1-b89a-432f-a195-949a180621bc"/>
+				<textFieldExpression><![CDATA[$F{usia57keatasWNA}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

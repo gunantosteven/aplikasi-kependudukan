@@ -8,9 +8,9 @@ package com.uwika.service;
 
 
 import com.uwika.model.DataPenduduk;
-import com.uwika.model.JenisKelamin;
+import com.uwika.model.enums.JenisKelamin;
 import com.uwika.model.Mutasi;
-import com.uwika.model.StatusKawin;
+import com.uwika.model.enums.StatusKawin;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;

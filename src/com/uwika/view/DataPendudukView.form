@@ -48,7 +48,6 @@
                   <Component id="txtTempatLahir" alignment="0" pref="299" max="32767" attributes="0"/>
                   <Component id="txtAgama" alignment="0" max="32767" attributes="0"/>
                   <Component id="txtPendidikan" alignment="0" max="32767" attributes="0"/>
-                  <Component id="txtKewarganegaraan" alignment="0" max="32767" attributes="0"/>
                   <Component id="txtAlamat" alignment="0" max="32767" attributes="0"/>
                   <Component id="txtKeteranngan" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
@@ -61,9 +60,12 @@
                       <Component id="btnClear" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Component id="calendarTanggalLahir" alignment="0" max="32767" attributes="0"/>
-                  <Component id="comboBoxPekerjaan" alignment="0" min="-2" pref="254" max="-2" attributes="0"/>
                   <Component id="comboBoxStatus" alignment="0" min="-2" pref="147" max="-2" attributes="0"/>
                   <Component id="comboBoxKedudukanDalamKeluarga" alignment="0" min="-2" pref="182" max="-2" attributes="0"/>
+                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                      <Component id="comboBoxKewarganegaraan" alignment="0" max="32767" attributes="0"/>
+                      <Component id="comboBoxPekerjaan" alignment="0" pref="254" max="32767" attributes="0"/>
+                  </Group>
               </Group>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
@@ -143,11 +145,11 @@
                           <Component id="comboBoxPekerjaan" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtKewarganegaraan" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
+                          <Component id="comboBoxKewarganegaraan" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="txtAlamat" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -167,7 +169,7 @@
                           <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
                           <Component id="comboBoxStatus" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="19" max="32767" attributes="0"/>
+                      <EmptySpace pref="25" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="btnSave" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="btnDelete" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -268,8 +270,6 @@
     <Component class="javax.swing.JTextField" name="txtAgama">
     </Component>
     <Component class="javax.swing.JTextField" name="txtPendidikan">
-    </Component>
-    <Component class="javax.swing.JTextField" name="txtKewarganegaraan">
     </Component>
     <Component class="javax.swing.JTextField" name="txtAlamat">
     </Component>
@@ -414,6 +414,16 @@
             <StringItem index="0" value="BAPAK"/>
             <StringItem index="1" value="IBU"/>
             <StringItem index="2" value="ANAK"/>
+          </StringArray>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="comboBoxKewarganegaraan">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="2">
+            <StringItem index="0" value="WNI"/>
+            <StringItem index="1" value="WNA"/>
           </StringArray>
         </Property>
       </Properties>

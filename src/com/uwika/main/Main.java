@@ -6,9 +6,9 @@
 package com.uwika.main;
 
 import com.uwika.model.DataPenduduk;
-import com.uwika.model.JenisKelamin;
+import com.uwika.model.enums.JenisKelamin;
 import com.uwika.model.Mutasi;
-import com.uwika.model.StatusKawin;
+import com.uwika.model.enums.StatusKawin;
 import com.uwika.service.DataPendudukService;
 import com.uwika.service.KoneksiMySQL;
 import com.uwika.service.MutasiService;
@@ -23,8 +23,6 @@ public class Main {
     public static void main(String[] args)
     {
         KoneksiMySQL.koneksi();
-        MutasiService mutasiService = new MutasiService();
-        mutasiService.insert(new Mutasi(null, "zxc", "zxvzxvzxv", new Date(0),"LAHIR"));
         new Menu().setVisible(true);
     }
 }

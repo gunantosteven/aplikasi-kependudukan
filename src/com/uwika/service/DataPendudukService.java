@@ -6,8 +6,9 @@
 package com.uwika.service;
 
 import com.uwika.model.DataPenduduk;
-import com.uwika.model.JenisKelamin;
-import com.uwika.model.StatusKawin;
+import com.uwika.model.enums.JenisKelamin;
+import com.uwika.model.enums.Kewarganegaraan;
+import com.uwika.model.enums.StatusKawin;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -36,7 +37,7 @@ public class DataPendudukService {
               preparedStatement.setString(7, da.getAgama());
               preparedStatement.setString(8, da.getPendidikanTerakhir());
               preparedStatement.setString(9, da.getPekerjaan());
-              preparedStatement.setString(10, da.getKewarganegaraan());
+              preparedStatement.setString(10, da.getKewarganegaraan().toString());
               preparedStatement.setString(11, da.getAlamatLengkap());
               preparedStatement.setString(12, da.getKedudukanDalamKeluarga());
               preparedStatement.setString(13, da.getKk());
@@ -71,7 +72,7 @@ public class DataPendudukService {
                preparedStatement.setString(6,dataPenduduk.getAgama());
                preparedStatement.setString(7,dataPenduduk.getPendidikanTerakhir());
                preparedStatement.setString(8,dataPenduduk.getPekerjaan());
-               preparedStatement.setString(9, dataPenduduk.getKewarganegaraan());
+               preparedStatement.setString(9, dataPenduduk.getKewarganegaraan().toString());
                preparedStatement.setString(10, dataPenduduk.getAlamatLengkap());
                preparedStatement.setString(11, dataPenduduk.getKedudukanDalamKeluarga());
                preparedStatement.setString(12, dataPenduduk.getKk());
@@ -133,7 +134,7 @@ public class DataPendudukService {
                 dataPendudukan.setAgama(resultSet.getString("agama"));
                 dataPendudukan.setPendidikanTerakhir(resultSet.getString("pendidikanTerakhir"));
                 dataPendudukan.setPekerjaan(resultSet.getString("pekerjaan"));
-                dataPendudukan.setKewarganegaraan(resultSet.getString("kewarganegaraan"));
+                dataPendudukan.setKewarganegaraan(resultSet.getString("kewarganegaraan").equals("WNI") ? Kewarganegaraan.WNI : Kewarganegaraan.WNA);
                 dataPendudukan.setAlamatLengkap(resultSet.getString("alamatLengkap"));
                 dataPendudukan.setKedudukanDalamKeluarga(resultSet.getString("kedudukanDalamKeluarga"));
                 dataPendudukan.setKk(resultSet.getString("kk"));
@@ -177,7 +178,7 @@ public class DataPendudukService {
                 dataPenduduk.setAgama(resultSet.getString("agama"));
                 dataPenduduk.setPendidikanTerakhir(resultSet.getString("pendidikanTerakhir"));
                 dataPenduduk.setPekerjaan(resultSet.getString("pekerjaan"));
-                dataPenduduk.setKewarganegaraan(resultSet.getString("kewarganegaraan"));
+                dataPenduduk.setKewarganegaraan(resultSet.getString("kewarganegaraan").equals("WNI") ? Kewarganegaraan.WNI : Kewarganegaraan.WNA);
                 dataPenduduk.setAlamatLengkap(resultSet.getString("alamatLengkap"));
                 dataPenduduk.setKedudukanDalamKeluarga(resultSet.getString("kedudukanDalamKeluarga"));
                 dataPenduduk.setKk(resultSet.getString("kk"));
@@ -223,7 +224,7 @@ public class DataPendudukService {
                 dataPendudukan.setAgama(resultSet.getString("agama"));
                 dataPendudukan.setPendidikanTerakhir(resultSet.getString("pendidikanTerakhir"));
                 dataPendudukan.setPekerjaan(resultSet.getString("pekerjaan"));
-                dataPendudukan.setKewarganegaraan(resultSet.getString("kewarganegaraan"));
+                dataPendudukan.setKewarganegaraan(resultSet.getString("kewarganegaraan").equals("WNI") ? Kewarganegaraan.WNI : Kewarganegaraan.WNA);
                 dataPendudukan.setAlamatLengkap(resultSet.getString("alamatLengkap"));
                 dataPendudukan.setKedudukanDalamKeluarga(resultSet.getString("kedudukanDalamKeluarga"));
                 dataPendudukan.setKk(resultSet.getString("kk"));

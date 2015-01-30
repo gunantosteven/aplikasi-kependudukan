@@ -5,6 +5,9 @@
  */
 package com.uwika.model;
 
+import com.uwika.model.enums.StatusKawin;
+import com.uwika.model.enums.JenisKelamin;
+import com.uwika.model.enums.Kewarganegaraan;
 import java.sql.Date;
 
 
@@ -24,7 +27,7 @@ public class DataPenduduk {
     private String agama;
     private String pendidikanTerakhir;
     private String pekerjaan;
-    private String kewarganegaraan;
+    private Kewarganegaraan kewarganegaraan;
     private String alamatLengkap;
     private String kedudukanDalamKeluarga;
     private String keterangan;
@@ -33,7 +36,7 @@ public class DataPenduduk {
     public DataPenduduk() {
     }
 
-    public DataPenduduk(String nik, String kk, String namaLengkap, JenisKelamin jenisKelamin, StatusKawin statusKawin, String tempatLahir, Date tanggalLahir, String agama, String pendidikanTerakhir, String pekerjaan, String kewarganegaraan, String alamatLengkap, String kedudukanDalamKeluarga, String keterangan, String status) {
+    public DataPenduduk(String nik, String kk, String namaLengkap, JenisKelamin jenisKelamin, StatusKawin statusKawin, String tempatLahir, Date tanggalLahir, String agama, String pendidikanTerakhir, String pekerjaan, Kewarganegaraan kewarganegaraan, String alamatLengkap, String kedudukanDalamKeluarga, String keterangan, String status) {
         this.nik = nik;
         this.kk = kk;
         this.namaLengkap = namaLengkap;
@@ -99,11 +102,11 @@ public class DataPenduduk {
         this.keterangan = keterangan;
     }
 
-    public String getKewarganegaraan() {
+    public Kewarganegaraan getKewarganegaraan() {
         return kewarganegaraan;
     }
 
-    public void setKewarganegaraan(String kewarganegaraan) {
+    public void setKewarganegaraan(Kewarganegaraan kewarganegaraan) {
         this.kewarganegaraan = kewarganegaraan;
     }
 
