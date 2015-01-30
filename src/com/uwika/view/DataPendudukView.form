@@ -62,10 +62,8 @@
                   <Component id="calendarTanggalLahir" alignment="0" max="32767" attributes="0"/>
                   <Component id="comboBoxStatus" alignment="0" min="-2" pref="147" max="-2" attributes="0"/>
                   <Component id="comboBoxKedudukanDalamKeluarga" alignment="0" min="-2" pref="182" max="-2" attributes="0"/>
-                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                      <Component id="comboBoxKewarganegaraan" alignment="0" max="32767" attributes="0"/>
-                      <Component id="comboBoxPekerjaan" alignment="0" pref="254" max="32767" attributes="0"/>
-                  </Group>
+                  <Component id="comboBoxKewarganegaraan" alignment="0" max="32767" attributes="0"/>
+                  <Component id="comboBoxPekerjaan" alignment="0" pref="254" max="32767" attributes="0"/>
               </Group>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">

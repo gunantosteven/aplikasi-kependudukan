@@ -327,9 +327,13 @@ public class MutasiView extends javax.swing.JPanel {
                 mutasi = new Mutasi();
             }
             FormToModel();
-            ms.insert(mutasi);
-            refreshTable();
-            refresh();
+            if(ms.insert(mutasi))
+            {
+                refreshTable();
+                refresh();
+                JOptionPane.showMessageDialog(null, "Data berhasil disimpan");
+            }
+            
         }
     }//GEN-LAST:event_btnSaveActionPerformed
 
@@ -342,10 +346,12 @@ public class MutasiView extends javax.swing.JPanel {
                 mutasi = new Mutasi();
             }
             FormToModel();
-            ms.update(Long.parseLong(jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString()),mutasi);
-            refreshTable();
-            refresh();
-            JOptionPane.showMessageDialog(null, "Data berhasil diupdate");
+            if(ms.update(Long.parseLong(jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString()),mutasi))
+            {
+                refreshTable();
+                refresh();
+                JOptionPane.showMessageDialog(null, "Data berhasil diupdate");
+            }
         }
     }//GEN-LAST:event_btnUpdateActionPerformed
 

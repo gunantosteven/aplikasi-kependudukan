@@ -232,7 +232,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Tanggal"/>
+        <Property name="text" type="java.lang.String" value="Tanggal Cetak"/>
       </Properties>
     </Component>
     <Component class="de.wannawork.jcalendar.JCalendarComboBox" name="calendarTanggalPertumbuhanPenduduk">
@@ -304,7 +304,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel11">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Tanggal"/>
+        <Property name="text" type="java.lang.String" value="Tanggal Cetak"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="btnCetakTenagaKerjaUmum">

@@ -101,7 +101,7 @@ public class MutasiService {
         try
         {
             
-            preparedStatement = KoneksiMySQL.getConnection().prepareStatement("select * from mutasi");
+            preparedStatement = KoneksiMySQL.getConnection().prepareStatement("select * from mutasi limit 1000");
             ResultSet resultSet = preparedStatement.executeQuery();
             while(resultSet.next())
             {
@@ -134,7 +134,7 @@ public class MutasiService {
             try
             {
 
-                preparedStatement = KoneksiMySQL.getConnection().prepareStatement("select * from mutasi where nik like '%"+ nik +"%'");
+                preparedStatement = KoneksiMySQL.getConnection().prepareStatement("select * from mutasi where nik like '%"+ nik +"%' limit 1000");
                 ResultSet resultSet = preparedStatement.executeQuery();
                 while(resultSet.next())
                 {

@@ -9,7 +9,7 @@
 	<parameter name="tanggal" class="java.util.Date"/>
 	<parameter name="kepalaDesa" class="java.lang.String"/>
 	<queryString>
-		<![CDATA[select pekerjaan from data_penduduk group by pekerjaan]]>
+		<![CDATA[select pekerjaan from data_penduduk group by pekerjaan limit 1]]>
 	</queryString>
 	<field name="pekerjaan" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>

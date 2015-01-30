@@ -120,7 +120,7 @@ public class DataPendudukService {
         try
         {
             
-            preparedStatement = KoneksiMySQL.getConnection().prepareStatement("select * from data_penduduk");
+            preparedStatement = KoneksiMySQL.getConnection().prepareStatement("select * from data_penduduk limit 1000");
             ResultSet resultSet = preparedStatement.executeQuery();
             while(resultSet.next())
             {
@@ -209,7 +209,7 @@ public class DataPendudukService {
         
         try
         {
-            String sql = "select * from data_penduduk where namaLengkap like '%"+ nama +"%'";
+            String sql = "select * from data_penduduk where namaLengkap like '%"+ nama +"%' limit 1000";
             s = (Statement)KoneksiMySQL.getConnection().createStatement();
             ResultSet resultSet = s.executeQuery(sql);
             while(resultSet.next())

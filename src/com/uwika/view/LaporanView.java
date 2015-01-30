@@ -92,7 +92,7 @@ public class LaporanView extends javax.swing.JPanel {
 
         jLabel5.setText("Laporan Pertumbuhan Penduduk");
 
-        jLabel6.setText("Tanggal");
+        jLabel6.setText("Tanggal Cetak");
 
         btnCetakPertumbuhanPenduduk.setText("Cetak");
         btnCetakPertumbuhanPenduduk.addActionListener(new java.awt.event.ActionListener() {
@@ -118,7 +118,7 @@ public class LaporanView extends javax.swing.JPanel {
 
         jLabel10.setText("Laporan Tenaga Kerja Umum");
 
-        jLabel11.setText("Tanggal");
+        jLabel11.setText("Tanggal Cetak");
 
         btnCetakTenagaKerjaUmum.setText("Cetak");
         btnCetakTenagaKerjaUmum.addActionListener(new java.awt.event.ActionListener() {

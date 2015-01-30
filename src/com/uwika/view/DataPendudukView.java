@@ -507,10 +507,12 @@ public class DataPendudukView extends javax.swing.JPanel {
                 dataPenduduk = new DataPenduduk();
             }
             FormToModel();
-            dataPendudukService.insert(dataPenduduk);
-            refreshTable();
-            refresh();
-            JOptionPane.showMessageDialog(null, "Data berhasil disimpan");
+            if(dataPendudukService.insert(dataPenduduk))
+            {
+                refreshTable();
+                refresh();
+                JOptionPane.showMessageDialog(null, "Data berhasil disimpan");
+            } 
         }
     }//GEN-LAST:event_btnSaveActionPerformed
 
@@ -527,10 +529,12 @@ public class DataPendudukView extends javax.swing.JPanel {
                 dataPenduduk = new DataPenduduk();
             }
             FormToModel();
-            dataPendudukService.update(jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString(),dataPenduduk);
-            refreshTable();
-            refresh();
-            JOptionPane.showMessageDialog(null, "Data berhasil diupdate");
+            if(dataPendudukService.update(jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString(),dataPenduduk))
+            {
+                refreshTable();
+                refresh();
+                JOptionPane.showMessageDialog(null, "Data berhasil diupdate");
+            }   
         }
     }//GEN-LAST:event_btnUpdateActionPerformed
 
