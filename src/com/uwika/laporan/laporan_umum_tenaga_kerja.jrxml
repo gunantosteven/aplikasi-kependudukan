@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="laporan_umum_tenaga_kerja" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0e739b05-eee5-458c-a1df-fa2bfdf58504">
-	<property name="ireport.zoom" value="0.9090909090909097"/>
+	<property name="ireport.zoom" value="1.0000000000000022"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
@@ -18,43 +18,224 @@
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="218" splitType="Stretch">
-			<staticText>
-				<reportElement x="322" y="0" width="100" height="20" uuid="e1b428b2-70a9-46fc-86c9-fad4f1b38a0e"/>
-				<text><![CDATA[Cowok]]></text>
-			</staticText>
+		<band height="144" splitType="Stretch">
 			<subreport>
-				<reportElement positionType="Float" isPrintRepeatedValues="false" x="0" y="70" width="802" height="21" uuid="834d6a4c-84ba-41e3-ad83-77994144e24f"/>
-				<subreportParameter name="pekerjaan">
-					<subreportParameterExpression><![CDATA[$F{pekerjaan}]]></subreportParameterExpression>
-				</subreportParameter>
-				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
-				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "laporan_umum_tenaga_kerja_wanita_subreport.jasper"]]></subreportExpression>
-			</subreport>
-			<staticText>
-				<reportElement positionType="Float" x="322" y="50" width="100" height="20" uuid="fe3684eb-ff61-432f-bce6-604c31e238ca"/>
-				<text><![CDATA[Cewek]]></text>
-			</staticText>
-			<subreport>
-				<reportElement isPrintRepeatedValues="false" x="0" y="20" width="802" height="22" uuid="4c42c687-48db-44b0-b570-38b012f92dd7"/>
+				<reportElement isPrintRepeatedValues="false" x="0" y="121" width="792" height="22" uuid="4c42c687-48db-44b0-b570-38b012f92dd7"/>
 				<subreportParameter name="pekerjaan">
 					<subreportParameterExpression><![CDATA[$F{pekerjaan}]]></subreportParameterExpression>
 				</subreportParameter>
 				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
 				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "laporan_umum_tenaga_kerja_pria_subreport.jasper"]]></subreportExpression>
 			</subreport>
-			<textField>
-				<reportElement x="635" y="154" width="100" height="20" uuid="35eaa722-f885-4e14-9537-6d6ffb53bf23"/>
+			<staticText>
+				<reportElement x="0" y="0" width="802" height="25" uuid="fe8250e1-ee5f-4630-8811-49964bab4421"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[JUMLAH KELOMPOK UMUR TENAGA KERJA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="46" width="116" height="20" uuid="1272ec57-2671-45d6-812e-8585faf607a7"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[KEADAAN BULAN :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="702" y="46" width="100" height="20" uuid="fad71369-683e-428f-86c3-016b18ade530"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FORMULIR A-7]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="76" width="88" height="45" uuid="904d8fac-f77b-4d15-a49f-76f4a63d64e1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[JENIS KELAMIN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="88" y="76" width="100" height="45" uuid="9781f307-b7cd-4fcc-a73b-ecb3937a1efb"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[PEKERJAAN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="188" y="106" width="42" height="15" uuid="6367337b-f49d-4eb3-8f8c-8c75e523b56a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[WNI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="188" y="76" width="504" height="15" uuid="265dd902-e77f-4238-a957-26558b16d3c1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[UMUR (TAHUN)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="188" y="91" width="84" height="15" uuid="9c8219c5-8aee-4dd7-b0e7-ac8c7aefaf7e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[0 - 17]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="272" y="91" width="84" height="15" uuid="e28e1f38-7377-4b14-b65e-e7a604a16ce9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[18 - 23]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="356" y="91" width="84" height="15" uuid="fd112ddd-03f4-428c-ab35-81663b2311c6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[24 - 30]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="440" y="91" width="84" height="15" uuid="eea4cbab-d54c-477e-aabd-9634249e2dcf"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[31 - 40]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="524" y="91" width="84" height="15" uuid="5a76d989-64d5-475d-95f2-c59252ea7701"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[41 - 56]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="608" y="91" width="84" height="15" uuid="a8bc37a7-9e57-4049-9e87-93054e2765d7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[57 KEATAS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="230" y="106" width="42" height="15" uuid="eebdfa44-c350-46e6-8419-66b0bb473346"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[WNA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="272" y="106" width="42" height="15" uuid="b8633551-2678-4e2a-b7a3-62e9cee0c78b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[WNI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="314" y="106" width="42" height="15" uuid="2cd088f9-3448-45a8-93e9-550e51085d40"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[WNA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="356" y="106" width="42" height="15" uuid="16d821ae-bf64-4817-9018-381cb80b3f7e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[WNI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="398" y="106" width="42" height="15" uuid="94a430fd-ef06-4dff-abc4-169b1fe5064a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[WNA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="440" y="106" width="42" height="15" uuid="5cb5afae-5d42-4dff-8a94-f787015fd595"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[WNI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="482" y="106" width="42" height="15" uuid="ed946740-fddc-4c53-8a8a-11ac7a924b4c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[WNA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="524" y="106" width="42" height="15" uuid="7c21d293-9e3a-43c9-a208-830d82f16bbe"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[WNI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="566" y="106" width="42" height="15" uuid="0dd6a4ab-cbb4-4041-8926-8fed8aa67fc0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[WNA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="608" y="106" width="42" height="15" uuid="6d1a45a5-5aa7-4ead-a9a2-cb03a6e1163c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[WNI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="650" y="106" width="42" height="15" uuid="65069c83-aeaf-423a-8d66-5707f39729cc"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[WNA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="692" y="76" width="100" height="45" uuid="c3eb02d9-24ea-4ca0-9d5c-8b6a07d76b03"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[JUMLAH SELURUHNYA]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="76" width="792" height="1" uuid="083dcd34-471c-48cb-b6f9-c395c47569cd"/>
+			</line>
+			<line>
+				<reportElement x="0" y="121" width="792" height="1" uuid="d55dbc47-f017-4838-af85-93010ccf88c8"/>
+			</line>
+			<line>
+				<reportElement x="0" y="77" width="1" height="45" uuid="1a3bfc68-e217-429d-95cf-4b3b11d67cdc"/>
+			</line>
+			<line>
+				<reportElement x="87" y="77" width="1" height="45" uuid="ae0142ae-55b6-4ee1-ae7b-e48db99308e7"/>
+			</line>
+			<line>
+				<reportElement x="187" y="77" width="1" height="45" uuid="d752e3cb-af50-4caa-a2ee-8ae634e8803b"/>
+			</line>
+			<line>
+				<reportElement x="691" y="77" width="1" height="45" uuid="99f7c2b5-0c28-489e-908a-226ffb0cafa6"/>
+			</line>
+			<line>
+				<reportElement x="791" y="77" width="1" height="45" uuid="8467a908-bc5f-4888-979a-5634ebd0ff4b"/>
+			</line>
+			<line>
+				<reportElement x="186" y="91" width="505" height="1" uuid="8d18c026-4a7e-4a29-bc87-5776a109a1b2"/>
+			</line>
+			<line>
+				<reportElement x="188" y="106" width="505" height="1" uuid="3b1e800f-399a-4073-9516-ff63645e183f"/>
+			</line>
+			<line>
+				<reportElement x="271" y="92" width="1" height="30" uuid="33becc2e-4031-410e-b2e6-41e5d400bd33"/>
+			</line>
+			<line>
+				<reportElement x="355" y="91" width="1" height="30" uuid="cfe91acf-8fcb-4205-9a7a-d85b1c0fda88"/>
+			</line>
+			<line>
+				<reportElement x="439" y="91" width="1" height="30" uuid="70bd6b2d-2d6c-4705-8431-1f686a7cf953"/>
+			</line>
+			<line>
+				<reportElement x="523" y="91" width="1" height="30" uuid="289783e9-10ad-4129-96e5-ac8dca3737d4"/>
+			</line>
+			<line>
+				<reportElement x="608" y="91" width="1" height="30" uuid="b52ac154-6981-4451-98be-8efe32e6609a"/>
+			</line>
+			<line>
+				<reportElement x="229" y="106" width="1" height="15" uuid="86342eae-bdc7-483d-a2ef-7e3af5eed28d"/>
+			</line>
+			<line>
+				<reportElement x="313" y="106" width="1" height="15" uuid="d75a62cd-be7d-4419-917f-db1c7b63ef35"/>
+			</line>
+			<line>
+				<reportElement x="397" y="107" width="1" height="15" uuid="cd89f35c-6172-4635-8d39-c97abdb77edf"/>
+			</line>
+			<line>
+				<reportElement x="481" y="107" width="1" height="15" uuid="08c0d57c-7aff-4451-8ddb-ea9443f83cfa"/>
+			</line>
+			<line>
+				<reportElement x="566" y="107" width="1" height="15" uuid="851c2092-85f5-4be5-a47c-6cd72c136739"/>
+			</line>
+			<line>
+				<reportElement x="649" y="106" width="1" height="15" uuid="298b0c8b-8996-4fd7-918b-b524d861ffff"/>
+			</line>
+			<textField pattern="MMMMM yyyy">
+				<reportElement x="129" y="46" width="185" height="20" uuid="9dea5e39-9290-4322-bb10-00a9a0e1d6b8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$P{tanggal}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="604" y="198" width="185" height="20" uuid="2dd0545b-23e9-4cb6-8826-d472675c8f24"/>
-				<textFieldExpression><![CDATA[$P{kepalaDesa}]]></textFieldExpression>
 			</textField>
 		</band>
 	</title>
 	<pageHeader>
-		<band splitType="Stretch"/>
+		<band height="24">
+			<subreport>
+				<reportElement positionType="Float" isPrintRepeatedValues="false" x="0" y="-1" width="792" height="21" uuid="834d6a4c-84ba-41e3-ad83-77994144e24f"/>
+				<subreportParameter name="pekerjaan">
+					<subreportParameterExpression><![CDATA[$F{pekerjaan}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "laporan_umum_tenaga_kerja_wanita_subreport.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
 	</pageHeader>
 	<columnHeader>
 		<band splitType="Stretch"/>
@@ -68,6 +249,29 @@
 	<pageFooter>
 		<band splitType="Stretch"/>
 	</pageFooter>
+	<lastPageFooter>
+		<band height="139">
+			<textField pattern="dd MMMMM yyyy">
+				<reportElement x="650" y="52" width="152" height="20" uuid="35eaa722-f885-4e14-9537-6d6ffb53bf23"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{tanggal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="585" y="119" width="185" height="20" uuid="2dd0545b-23e9-4cb6-8826-d472675c8f24"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{kepalaDesa}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="599" y="52" width="51" height="20" uuid="63968880-ccaf-4b2c-bbaa-2bfeec7aeb39"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Sugeng ,]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="617" y="72" width="128" height="20" uuid="334dda7a-96a2-482c-8342-524a556bc313"/>
+				<text><![CDATA[Kepala Desa Sugeng]]></text>
+			</staticText>
+		</band>
+	</lastPageFooter>
 	<summary>
 		<band splitType="Stretch"/>
 	</summary>

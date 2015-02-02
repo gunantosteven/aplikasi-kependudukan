@@ -68,61 +68,161 @@ from data_penduduk d where jenisKelamin = 'PRIA' group by pekerjaan]]>
 	<detail>
 		<band height="21" splitType="Stretch">
 			<textField>
-				<reportElement x="604" y="0" width="50" height="20" uuid="6b9ed00b-738d-46b7-a7e1-932871dde170"/>
+				<reportElement x="692" y="0" width="100" height="20" uuid="6b9ed00b-738d-46b7-a7e1-932871dde170"/>
+				<textElement verticalAlignment="Middle">
+					<paragraph firstLineIndent="5"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="0" y="1" width="100" height="20" uuid="91e68063-b828-481f-9818-9a66322b55f3"/>
+				<reportElement x="88" y="1" width="100" height="20" uuid="91e68063-b828-481f-9818-9a66322b55f3"/>
+				<textElement verticalAlignment="Middle">
+					<paragraph firstLineIndent="5"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{pekerjaan}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="100" y="0" width="42" height="20" uuid="cf707848-7427-42f5-a4a0-49c3e4014e21"/>
+				<reportElement x="188" y="0" width="42" height="20" uuid="cf707848-7427-42f5-a4a0-49c3e4014e21"/>
+				<textElement verticalAlignment="Middle">
+					<paragraph firstLineIndent="5"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{usia0sampai17WNI}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="142" y="0" width="42" height="20" uuid="3a6440e0-5b72-42c1-b46f-7153691fb4c1"/>
+				<reportElement x="230" y="0" width="42" height="20" uuid="3a6440e0-5b72-42c1-b46f-7153691fb4c1"/>
+				<textElement verticalAlignment="Middle">
+					<paragraph firstLineIndent="5"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{usia0sampai17WNA}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="184" y="0" width="42" height="20" uuid="839d1bad-3ed1-411b-b9ce-ba629c61a5d6"/>
+				<reportElement x="272" y="0" width="42" height="20" uuid="839d1bad-3ed1-411b-b9ce-ba629c61a5d6"/>
+				<textElement verticalAlignment="Middle">
+					<paragraph firstLineIndent="5"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{usia18sampai23WNI}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="226" y="0" width="42" height="20" uuid="2cfa17cb-6bab-4437-ae71-a0a5bb39e3c0"/>
+				<reportElement x="314" y="0" width="42" height="20" uuid="2cfa17cb-6bab-4437-ae71-a0a5bb39e3c0"/>
+				<textElement verticalAlignment="Middle">
+					<paragraph firstLineIndent="5"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{usia18sampai23WNA}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="268" y="1" width="42" height="20" uuid="9229ce6b-f078-4d5f-9c41-6d5a4254f068"/>
+				<reportElement x="356" y="1" width="42" height="20" uuid="9229ce6b-f078-4d5f-9c41-6d5a4254f068"/>
+				<textElement verticalAlignment="Middle">
+					<paragraph firstLineIndent="5"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{usia24sampai30WNI}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="310" y="1" width="42" height="20" uuid="90464213-3278-4051-b641-dbca0de4abf9"/>
+				<reportElement x="398" y="1" width="42" height="20" uuid="90464213-3278-4051-b641-dbca0de4abf9"/>
+				<textElement verticalAlignment="Middle">
+					<paragraph firstLineIndent="5"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{usia24sampai30WNA}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="352" y="1" width="42" height="20" uuid="12e82e60-68bb-46a3-ac6c-f5ac3569b623"/>
+				<reportElement x="440" y="1" width="42" height="20" uuid="12e82e60-68bb-46a3-ac6c-f5ac3569b623"/>
+				<textElement verticalAlignment="Middle">
+					<paragraph firstLineIndent="5"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{usia31sampai40WNI}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="394" y="1" width="42" height="20" uuid="02da81bb-67b0-409d-9112-91cfed9d0781"/>
+				<reportElement x="482" y="1" width="42" height="20" uuid="02da81bb-67b0-409d-9112-91cfed9d0781"/>
+				<textElement verticalAlignment="Middle">
+					<paragraph firstLineIndent="5"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{usia31sampai40WNA}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="436" y="0" width="42" height="20" uuid="da3582b4-eadf-40c6-af0e-3738cae5e56e"/>
+				<reportElement x="524" y="0" width="42" height="20" uuid="da3582b4-eadf-40c6-af0e-3738cae5e56e"/>
+				<textElement verticalAlignment="Middle">
+					<paragraph firstLineIndent="5"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{usia41sampai56WNI}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="478" y="0" width="42" height="20" uuid="2c995a7c-176f-435a-a114-3948611730e9"/>
+				<reportElement x="566" y="0" width="42" height="20" uuid="2c995a7c-176f-435a-a114-3948611730e9"/>
+				<textElement verticalAlignment="Middle">
+					<paragraph firstLineIndent="5"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{usia41sampai56WNA}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="520" y="0" width="42" height="20" uuid="d8884f66-d1b5-4683-90b1-4b9ee1b3e6ae"/>
+				<reportElement x="608" y="0" width="42" height="20" uuid="d8884f66-d1b5-4683-90b1-4b9ee1b3e6ae"/>
+				<textElement verticalAlignment="Middle">
+					<paragraph firstLineIndent="5"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{usia57keatasWNI}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="562" y="0" width="42" height="20" uuid="81663cb1-b89a-432f-a195-949a180621bc"/>
+				<reportElement x="650" y="0" width="42" height="20" uuid="81663cb1-b89a-432f-a195-949a180621bc"/>
+				<textElement verticalAlignment="Middle">
+					<paragraph firstLineIndent="5"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{usia57keatasWNA}]]></textFieldExpression>
 			</textField>
+			<line>
+				<reportElement x="187" y="0" width="1" height="20" uuid="a10f1063-320f-41ff-abb0-8f778830b5f6"/>
+			</line>
+			<line>
+				<reportElement x="229" y="0" width="1" height="20" uuid="3dfe7640-2caf-4ed9-81da-4b0fbc37440a"/>
+			</line>
+			<line>
+				<reportElement x="271" y="0" width="1" height="20" uuid="1f2727cd-34f2-4fa7-95ff-98f57cf0dff6"/>
+			</line>
+			<line>
+				<reportElement x="355" y="1" width="1" height="20" uuid="c53b6e3e-d6c4-451d-8abc-ef411515c78b"/>
+			</line>
+			<line>
+				<reportElement x="313" y="0" width="1" height="20" uuid="ae8b0f25-230d-4512-a7f8-ed5d95a3e5f9"/>
+			</line>
+			<line>
+				<reportElement x="397" y="0" width="1" height="20" uuid="14e3e416-7499-40c7-bcdd-8ced50d3c386"/>
+			</line>
+			<line>
+				<reportElement x="439" y="0" width="1" height="20" uuid="8c1448a4-8a63-43cb-9409-03175742a2f7"/>
+			</line>
+			<line>
+				<reportElement x="481" y="0" width="1" height="20" uuid="deea1a55-936a-4b02-a22f-79a40e9c6554"/>
+			</line>
+			<line>
+				<reportElement x="565" y="1" width="1" height="20" uuid="da5ba961-4515-4eb1-a74d-5809142b9e82"/>
+			</line>
+			<line>
+				<reportElement x="523" y="1" width="1" height="20" uuid="f0d36576-fdf9-4d93-b812-6d8063ac2c65"/>
+			</line>
+			<line>
+				<reportElement x="87" y="1" width="1" height="20" uuid="e4300b06-a0c2-4570-9c08-5ea478bc9f5b"/>
+			</line>
+			<line>
+				<reportElement x="791" y="1" width="1" height="20" uuid="cf346391-9ea2-45d3-8c2b-f861414fb4cf"/>
+			</line>
+			<line>
+				<reportElement x="691" y="1" width="1" height="20" uuid="962178a9-5c49-4e4f-9e0e-b27d84600d2a"/>
+			</line>
+			<line>
+				<reportElement x="608" y="1" width="1" height="20" uuid="64d226ef-dc36-4bcc-af69-2206e051fc7b"/>
+			</line>
+			<line>
+				<reportElement x="649" y="1" width="1" height="20" uuid="23b78a58-27bc-4a1f-8c52-0b74a272cd45"/>
+			</line>
+			<line>
+				<reportElement x="0" y="20" width="792" height="1" uuid="f9b9e30e-bec7-4f7a-b690-10cdd9129bbe"/>
+			</line>
+			<staticText>
+				<reportElement isPrintRepeatedValues="false" x="0" y="1" width="88" height="20" uuid="4172afe7-8bae-4fae-a727-ca72e66baf4f"/>
+				<textElement verticalAlignment="Middle">
+					<paragraph firstLineIndent="5"/>
+				</textElement>
+				<text><![CDATA[LAKI - LAKI]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="1" width="1" height="20" uuid="4c5fe392-5d25-44b7-afa3-125bd7492814"/>
+			</line>
 		</band>
 	</detail>
 	<columnFooter>
