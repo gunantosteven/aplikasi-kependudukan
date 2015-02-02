@@ -9,6 +9,8 @@ import com.uwika.model.DataPenduduk;
 import com.uwika.model.Mutasi;
 import com.uwika.service.DataPendudukService;
 import com.uwika.service.MutasiService;
+import com.uwika.util.LineNumberTableRowHeader;
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -31,6 +33,11 @@ public class MutasiView extends javax.swing.JPanel {
     
     public MutasiView() {
         initComponents();
+        
+        // kolom nomer urut
+        LineNumberTableRowHeader tableLineNumber = new LineNumberTableRowHeader(jScrollPane1, jTable1);
+        tableLineNumber.setBackground(Color.LIGHT_GRAY);
+        jScrollPane1.setRowHeaderView(tableLineNumber);
         
         jTable1.setAutoCreateColumnsFromModel(false);
         jTable1.getSelectionModel().addListSelectionListener(new MutasiSelectionListener());
@@ -326,7 +333,8 @@ public class MutasiView extends javax.swing.JPanel {
                             .addComponent(btnSave)
                             .addComponent(btnUpdate)
                             .addComponent(btnDelete)
-                            .addComponent(btnClear))))
+                            .addComponent(btnClear))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents

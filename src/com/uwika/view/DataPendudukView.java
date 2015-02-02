@@ -10,6 +10,8 @@ import com.uwika.model.enums.JenisKelamin;
 import com.uwika.model.enums.Kewarganegaraan;
 import com.uwika.model.enums.StatusKawin;
 import com.uwika.service.DataPendudukService;
+import com.uwika.util.LineNumberTableRowHeader;
+import java.awt.Color;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
@@ -33,6 +35,11 @@ public class DataPendudukView extends javax.swing.JPanel {
      */
     public DataPendudukView() {
         initComponents();
+        
+        // kolom nomer urut
+        LineNumberTableRowHeader tableLineNumber = new LineNumberTableRowHeader(jScrollPane1, jTable1);
+        tableLineNumber.setBackground(Color.LIGHT_GRAY);
+        jScrollPane1.setRowHeaderView(tableLineNumber);
         
         jTable1.setAutoCreateColumnsFromModel(false);
         jTable1.getSelectionModel().addListSelectionListener(new PendudukSelectionListener());
