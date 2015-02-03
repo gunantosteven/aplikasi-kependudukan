@@ -107,6 +107,17 @@ public class DataPendudukView extends javax.swing.JPanel {
         txtNIK.setEditable(true);
     }
     
+    private void refreshTanpaNik()
+    {
+        txtAgama.setText("");
+        txtAlamat.setText("");
+        txtKK.setText("");
+        txtKeteranngan.setText("");
+        txtNamaLengkap.setText("");
+        txtPendidikan.setText("");
+        txtTempatLahir.setText("");
+    }
+    
     private class PendudukSelectionListener implements ListSelectionListener
     {
         public void valueChanged(ListSelectionEvent e)
@@ -117,16 +128,16 @@ public class DataPendudukView extends javax.swing.JPanel {
                 dataPenduduk = dataPendudukService.getByNik(dataPenduduk.getNik());
                 ModelToForm();
                 txtNIK.setEditable(false);
-                btnSave.setEnabled(false);
-                btnUpdate.setEnabled(true);
-                btnDelete.setEnabled(true);
+                btnSimpan.setEnabled(false);
+                btnUbah.setEnabled(true);
+                btnHapus.setEnabled(true);
             }
             else
             {
                 txtNIK.setEditable(true);
-                btnSave.setEnabled(true);
-                btnUpdate.setEnabled(false);
-                btnDelete.setEnabled(false);
+                btnSimpan.setEnabled(true);
+                btnUbah.setEnabled(false);
+                btnHapus.setEnabled(false);
             }
         }
     }
@@ -235,20 +246,21 @@ public class DataPendudukView extends javax.swing.JPanel {
         jLabel15 = new javax.swing.JLabel();
         comboStatusKawin = new javax.swing.JComboBox();
         txtKeteranngan = new javax.swing.JTextField();
-        btnSave = new javax.swing.JButton();
-        btnDelete = new javax.swing.JButton();
+        btnSimpan = new javax.swing.JButton();
+        btnHapus = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         search = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
         calendarTanggalLahir = new de.wannawork.jcalendar.JCalendarComboBox();
-        btnUpdate = new javax.swing.JButton();
+        btnUbah = new javax.swing.JButton();
         btnClear = new javax.swing.JButton();
         comboBoxPekerjaan = new javax.swing.JComboBox();
         jLabel16 = new javax.swing.JLabel();
         comboBoxStatus = new javax.swing.JComboBox();
         comboBoxKedudukanDalamKeluarga = new javax.swing.JComboBox();
         comboBoxKewarganegaraan = new javax.swing.JComboBox();
+        btnBaru = new javax.swing.JButton();
 
         addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentShown(java.awt.event.ComponentEvent evt) {
@@ -294,18 +306,18 @@ public class DataPendudukView extends javax.swing.JPanel {
             }
         });
 
-        btnSave.setText("SAVE");
-        btnSave.addActionListener(new java.awt.event.ActionListener() {
+        btnSimpan.setText("SIMPAN");
+        btnSimpan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSaveActionPerformed(evt);
+                btnSimpanActionPerformed(evt);
             }
         });
 
-        btnDelete.setText("DELETE");
-        btnDelete.setEnabled(false);
-        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+        btnHapus.setText("HAPUS");
+        btnHapus.setEnabled(false);
+        btnHapus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDeleteActionPerformed(evt);
+                btnHapusActionPerformed(evt);
             }
         });
 
@@ -337,11 +349,11 @@ public class DataPendudukView extends javax.swing.JPanel {
 
         jLabel14.setText("Pencarian");
 
-        btnUpdate.setText("UPDATE");
-        btnUpdate.setEnabled(false);
-        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+        btnUbah.setText("UBAH");
+        btnUbah.setEnabled(false);
+        btnUbah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnUpdateActionPerformed(evt);
+                btnUbahActionPerformed(evt);
             }
         });
 
@@ -362,6 +374,13 @@ public class DataPendudukView extends javax.swing.JPanel {
 
         comboBoxKewarganegaraan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "WNI", "WNA" }));
 
+        btnBaru.setText("BARU");
+        btnBaru.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBaruActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -369,56 +388,61 @@ public class DataPendudukView extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel9)
-                    .addComponent(jLabel10)
-                    .addComponent(jLabel11)
-                    .addComponent(jLabel12)
-                    .addComponent(jLabel13)
-                    .addComponent(jLabel15)
-                    .addComponent(jLabel16))
-                .addGap(36, 36, 36)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel12)
+                            .addComponent(jLabel13)
+                            .addComponent(jLabel15)
+                            .addComponent(jLabel16))
+                        .addGap(36, 36, 36))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btnBaru, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(comboStatusKawin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(comboJenisKelamin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtNIK)
                     .addComponent(txtKK)
                     .addComponent(txtNamaLengkap)
-                    .addComponent(txtTempatLahir, javax.swing.GroupLayout.DEFAULT_SIZE, 299, Short.MAX_VALUE)
+                    .addComponent(txtTempatLahir)
                     .addComponent(txtAgama)
                     .addComponent(txtPendidikan)
                     .addComponent(txtAlamat)
                     .addComponent(txtKeteranngan)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnSave)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnUpdate)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnDelete)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnClear))
                     .addComponent(calendarTanggalLahir, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(comboBoxStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(comboBoxKedudukanDalamKeluarga, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(comboBoxKewarganegaraan, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(comboBoxPekerjaan, 0, 254, Short.MAX_VALUE))
+                    .addComponent(comboBoxPekerjaan, 0, 308, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnSimpan)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnUbah)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnHapus)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnClear)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(86, 86, 86)
+                        .addGap(80, 80, 80)
                         .addComponent(jLabel14)
                         .addGap(18, 18, 18)
                         .addComponent(search, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(373, Short.MAX_VALUE))
+                        .addContainerGap(370, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 758, Short.MAX_VALUE))))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 749, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -433,7 +457,7 @@ public class DataPendudukView extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addGap(52, 52, 52))
+                        .addGap(31, 31, 31))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
@@ -490,13 +514,14 @@ public class DataPendudukView extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel16)
                             .addComponent(comboBoxStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnSave)
-                            .addComponent(btnDelete)
-                            .addComponent(btnUpdate)
-                            .addComponent(btnClear))
-                        .addGap(24, 24, 24))))
+                            .addComponent(btnSimpan)
+                            .addComponent(btnHapus)
+                            .addComponent(btnUbah)
+                            .addComponent(btnClear)
+                            .addComponent(btnBaru))
+                        .addGap(47, 47, 47))))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -504,7 +529,7 @@ public class DataPendudukView extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtKeterannganActionPerformed
 
-    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+    private void btnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimpanActionPerformed
         // TODO add your handling code here:
         if(validateForm())
         {
@@ -520,13 +545,13 @@ public class DataPendudukView extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(null, "Data berhasil disimpan");
             } 
         }
-    }//GEN-LAST:event_btnSaveActionPerformed
+    }//GEN-LAST:event_btnSimpanActionPerformed
 
     private void formComponentShown(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_formComponentShown
         // TODO add your handling code here:
     }//GEN-LAST:event_formComponentShown
 
-    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+    private void btnUbahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUbahActionPerformed
         // TODO add your handling code here:
         if(validateForm())
         {
@@ -542,9 +567,9 @@ public class DataPendudukView extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(null, "Data berhasil diupdate");
             }   
         }
-    }//GEN-LAST:event_btnUpdateActionPerformed
+    }//GEN-LAST:event_btnUbahActionPerformed
 
-    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+    private void btnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHapusActionPerformed
         // TODO add your handling code here:
         if(jTable1.getSelectedRow() >= 0)
         {
@@ -559,23 +584,30 @@ public class DataPendudukView extends javax.swing.JPanel {
         }
         else
             JOptionPane.showMessageDialog(null, "Tidak ada data yang dihapus");
-    }//GEN-LAST:event_btnDeleteActionPerformed
+    }//GEN-LAST:event_btnHapusActionPerformed
 
     private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
         // TODO add your handling code here:
+        refreshTanpaNik();
+        
+    }//GEN-LAST:event_btnClearActionPerformed
+
+    private void btnBaruActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBaruActionPerformed
+        // TODO add your handling code here:\
         refreshTable();
         refresh();
-        btnSave.setEnabled(true);
-        btnUpdate.setEnabled(false);
-        btnDelete.setEnabled(false);
-    }//GEN-LAST:event_btnClearActionPerformed
+        btnSimpan.setEnabled(true);
+        btnUbah.setEnabled(false);
+        btnHapus.setEnabled(false);
+    }//GEN-LAST:event_btnBaruActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBaru;
     private javax.swing.JButton btnClear;
-    private javax.swing.JButton btnDelete;
-    private javax.swing.JButton btnSave;
-    private javax.swing.JButton btnUpdate;
+    private javax.swing.JButton btnHapus;
+    private javax.swing.JButton btnSimpan;
+    private javax.swing.JButton btnUbah;
     private de.wannawork.jcalendar.JCalendarComboBox calendarTanggalLahir;
     private javax.swing.JComboBox comboBoxKedudukanDalamKeluarga;
     private javax.swing.JComboBox comboBoxKewarganegaraan;

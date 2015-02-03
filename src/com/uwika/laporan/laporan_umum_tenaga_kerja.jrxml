@@ -8,6 +8,8 @@
 	</parameter>
 	<parameter name="tanggal" class="java.util.Date"/>
 	<parameter name="kepalaDesa" class="java.lang.String"/>
+	<parameter name="SUBREPORT_pria_DIR" class="java.io.InputStream"/>
+	<parameter name="SUBREPORT_wanita_DIR" class="java.io.InputStream"/>
 	<queryString>
 		<![CDATA[select pekerjaan from data_penduduk group by pekerjaan limit 1]]>
 	</queryString>
@@ -25,7 +27,7 @@
 					<subreportParameterExpression><![CDATA[$F{pekerjaan}]]></subreportParameterExpression>
 				</subreportParameter>
 				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
-				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "laporan_umum_tenaga_kerja_pria_subreport.jasper"]]></subreportExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_pria_DIR}]]></subreportExpression>
 			</subreport>
 			<staticText>
 				<reportElement x="0" y="0" width="802" height="25" uuid="fe8250e1-ee5f-4630-8811-49964bab4421"/>
@@ -235,7 +237,7 @@
 					<subreportParameterExpression><![CDATA[$F{pekerjaan}]]></subreportParameterExpression>
 				</subreportParameter>
 				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
-				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "laporan_umum_tenaga_kerja_wanita_subreport.jasper"]]></subreportExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_wanita_DIR}]]></subreportExpression>
 			</subreport>
 		</band>
 	</pageHeader>

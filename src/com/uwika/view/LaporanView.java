@@ -307,6 +307,10 @@ public class LaporanView extends javax.swing.JPanel {
 	            HashMap<String,Object> param = new HashMap<String,Object>();
                     param.put("tanggal", calendarTenagaKerjaUmum.getDate() );
                     param.put("kepalaDesa", txtKepalaDesaSugeng.getText());
+                    param.put("SUBREPORT_pria_DIR", LaporanView.class
+                    .getResourceAsStream("/com/uwika/laporan/laporan_umum_tenaga_kerja_pria_subreport.jasper"));
+                    param.put("SUBREPORT_wanita_DIR", LaporanView.class
+                    .getResourceAsStream("/com/uwika/laporan/laporan_umum_tenaga_kerja_wanita_subreport.jasper"));
 	            JasperReport jasperReport = JasperCompileManager.compileReport(jasperDesign);
 	            JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport,param, KoneksiMySQL.getConnection());
 	            JasperViewer.viewReport(jasperPrint,false);

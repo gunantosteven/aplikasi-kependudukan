@@ -72,6 +72,13 @@ public class MutasiView extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "NIK tidak terdaftar dalam Data Penduduk!");
             return false;
         }
+        
+        if(ds.getByNik(txtNik.getText()).getStatus().equals("MATI"))
+        {
+            JOptionPane.showMessageDialog(null, "Orang ini sudah tidak ada / meninggal");
+            return false;
+        }
+        
         return true;
     }
     
@@ -85,16 +92,16 @@ public class MutasiView extends javax.swing.JPanel {
                 mutasi = ms.getByNik(mutasi.getNik());
                 ModelToForm();
                 txtNik.setEditable(false);
-                btnSave.setEnabled(false);
-                btnUpdate.setEnabled(true);
-                btnDelete.setEnabled(true);
+                btnSimpan.setEnabled(false);
+                btnUbah.setEnabled(true);
+                btnHapus.setEnabled(true);
             }
             else
             {
                 txtNik.setEditable(true);
-                btnSave.setEnabled(true);
-                btnUpdate.setEnabled(false);
-                btnDelete.setEnabled(false);
+                btnSimpan.setEnabled(true);
+                btnUbah.setEnabled(false);
+                btnHapus.setEnabled(false);
             }
         }
     }
@@ -171,6 +178,11 @@ public class MutasiView extends javax.swing.JPanel {
         txtNik.setEditable(true);
     }
     
+    private void refreshTanpaNik()
+    {
+        txtTempat.setText("");
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -187,15 +199,16 @@ public class MutasiView extends javax.swing.JPanel {
         txtNik = new javax.swing.JTextField();
         txtTempat = new javax.swing.JTextField();
         comboKeterangan = new javax.swing.JComboBox();
-        btnSave = new javax.swing.JButton();
+        btnSimpan = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         search = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         calendarTanggal = new de.wannawork.jcalendar.JCalendarComboBox();
-        btnUpdate = new javax.swing.JButton();
-        btnDelete = new javax.swing.JButton();
+        btnUbah = new javax.swing.JButton();
+        btnHapus = new javax.swing.JButton();
         btnClear = new javax.swing.JButton();
+        btnBaru = new javax.swing.JButton();
 
         jLabel1.setText("NIK");
 
@@ -207,10 +220,10 @@ public class MutasiView extends javax.swing.JPanel {
 
         comboKeterangan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "DATANG", "PINDAH", "LAHIR", "MATI" }));
 
-        btnSave.setText("SAVE");
-        btnSave.addActionListener(new java.awt.event.ActionListener() {
+        btnSimpan.setText("SIMPAN");
+        btnSimpan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSaveActionPerformed(evt);
+                btnSimpanActionPerformed(evt);
             }
         });
 
@@ -237,19 +250,19 @@ public class MutasiView extends javax.swing.JPanel {
 
         jLabel5.setText("Pencarian");
 
-        btnUpdate.setText("UPDATE");
-        btnUpdate.setEnabled(false);
-        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+        btnUbah.setText("UBAH");
+        btnUbah.setEnabled(false);
+        btnUbah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnUpdateActionPerformed(evt);
+                btnUbahActionPerformed(evt);
             }
         });
 
-        btnDelete.setText("DELETE");
-        btnDelete.setEnabled(false);
-        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+        btnHapus.setText("HAPUS");
+        btnHapus.setEnabled(false);
+        btnHapus.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDeleteActionPerformed(evt);
+                btnHapusActionPerformed(evt);
             }
         });
 
@@ -260,14 +273,21 @@ public class MutasiView extends javax.swing.JPanel {
             }
         });
 
+        btnBaru.setText("BARU");
+        btnBaru.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBaruActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
                             .addComponent(jLabel2)
@@ -281,12 +301,13 @@ public class MutasiView extends javax.swing.JPanel {
                                 .addComponent(calendarTanggal, javax.swing.GroupLayout.DEFAULT_SIZE, 299, Short.MAX_VALUE))
                             .addComponent(comboKeterangan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(btnSave)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnUpdate)
+                        .addComponent(btnBaru)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnDelete)
+                        .addComponent(btnSimpan)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnUbah)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnHapus)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnClear)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -328,18 +349,19 @@ public class MutasiView extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
                             .addComponent(comboKeterangan, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(38, 38, 38)
+                        .addGap(36, 36, 36)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnSave)
-                            .addComponent(btnUpdate)
-                            .addComponent(btnDelete)
-                            .addComponent(btnClear))
+                            .addComponent(btnSimpan)
+                            .addComponent(btnUbah)
+                            .addComponent(btnHapus)
+                            .addComponent(btnClear)
+                            .addComponent(btnBaru))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+    private void btnSimpanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSimpanActionPerformed
         // TODO add your handling code here:
         if(validateForm())
         {
@@ -360,9 +382,9 @@ public class MutasiView extends javax.swing.JPanel {
             }
             
         }
-    }//GEN-LAST:event_btnSaveActionPerformed
+    }//GEN-LAST:event_btnSimpanActionPerformed
 
-    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+    private void btnUbahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUbahActionPerformed
         // TODO add your handling code here:
         if(validateForm())
         {
@@ -382,9 +404,9 @@ public class MutasiView extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(null, "Data berhasil diupdate");
             }
         }
-    }//GEN-LAST:event_btnUpdateActionPerformed
+    }//GEN-LAST:event_btnUbahActionPerformed
 
-    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+    private void btnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHapusActionPerformed
         // TODO add your handling code here:
         if(jTable1.getSelectedRow() >= 0)
         {
@@ -399,7 +421,7 @@ public class MutasiView extends javax.swing.JPanel {
         }
         else
             JOptionPane.showMessageDialog(null, "Tidak ada data yang dihapus");
-    }//GEN-LAST:event_btnDeleteActionPerformed
+    }//GEN-LAST:event_btnHapusActionPerformed
 
     private void searchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchKeyReleased
         // TODO add your handling code here:
@@ -409,18 +431,25 @@ public class MutasiView extends javax.swing.JPanel {
 
     private void btnClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClearActionPerformed
         // TODO add your handling code here:
-        refreshTable();
-        refresh();
-        btnSave.setEnabled(true);
-        btnUpdate.setEnabled(false);
-        btnDelete.setEnabled(false);
+        
+        refreshTanpaNik();
     }//GEN-LAST:event_btnClearActionPerformed
 
+    private void btnBaruActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBaruActionPerformed
+        // TODO add your handling code here:
+        refreshTable();
+        refresh();
+        btnSimpan.setEnabled(true);
+        btnUbah.setEnabled(false);
+        btnHapus.setEnabled(false);
+    }//GEN-LAST:event_btnBaruActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBaru;
     private javax.swing.JButton btnClear;
-    private javax.swing.JButton btnDelete;
-    private javax.swing.JButton btnSave;
-    private javax.swing.JButton btnUpdate;
+    private javax.swing.JButton btnHapus;
+    private javax.swing.JButton btnSimpan;
+    private javax.swing.JButton btnUbah;
     private de.wannawork.jcalendar.JCalendarComboBox calendarTanggal;
     private javax.swing.JComboBox comboKeterangan;
     private javax.swing.JLabel jLabel1;
