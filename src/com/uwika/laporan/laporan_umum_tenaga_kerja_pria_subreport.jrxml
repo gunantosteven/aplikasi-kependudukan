@@ -214,7 +214,9 @@ from data_penduduk d where jenisKelamin = 'PRIA' group by pekerjaan]]>
 				<reportElement x="0" y="20" width="792" height="1" uuid="f9b9e30e-bec7-4f7a-b690-10cdd9129bbe"/>
 			</line>
 			<staticText>
-				<reportElement isPrintRepeatedValues="false" x="0" y="1" width="88" height="20" uuid="4172afe7-8bae-4fae-a727-ca72e66baf4f"/>
+				<reportElement x="0" y="1" width="88" height="20" uuid="4172afe7-8bae-4fae-a727-ca72e66baf4f">
+					<printWhenExpression><![CDATA[new Boolean($V{REPORT_COUNT}.intValue() == 1)]]></printWhenExpression>
+				</reportElement>
 				<textElement verticalAlignment="Middle">
 					<paragraph firstLineIndent="5"/>
 				</textElement>

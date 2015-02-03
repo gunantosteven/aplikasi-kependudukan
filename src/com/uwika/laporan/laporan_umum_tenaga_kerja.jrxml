@@ -20,7 +20,7 @@
 	<title>
 		<band height="144" splitType="Stretch">
 			<subreport>
-				<reportElement isPrintRepeatedValues="false" x="0" y="121" width="792" height="22" uuid="4c42c687-48db-44b0-b570-38b012f92dd7"/>
+				<reportElement x="0" y="121" width="792" height="22" uuid="4c42c687-48db-44b0-b570-38b012f92dd7"/>
 				<subreportParameter name="pekerjaan">
 					<subreportParameterExpression><![CDATA[$F{pekerjaan}]]></subreportParameterExpression>
 				</subreportParameter>
@@ -219,8 +219,10 @@
 				<reportElement x="649" y="106" width="1" height="15" uuid="298b0c8b-8996-4fd7-918b-b524d861ffff"/>
 			</line>
 			<textField pattern="MMMMM yyyy">
-				<reportElement x="129" y="46" width="185" height="20" uuid="9dea5e39-9290-4322-bb10-00a9a0e1d6b8"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<reportElement x="123" y="46" width="170" height="20" uuid="9dea5e39-9290-4322-bb10-00a9a0e1d6b8"/>
+				<textElement textAlignment="Left" verticalAlignment="Top">
+					<font size="12" isBold="true"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$P{tanggal}]]></textFieldExpression>
 			</textField>
 		</band>
@@ -228,7 +230,7 @@
 	<pageHeader>
 		<band height="24">
 			<subreport>
-				<reportElement positionType="Float" isPrintRepeatedValues="false" x="0" y="-1" width="792" height="21" uuid="834d6a4c-84ba-41e3-ad83-77994144e24f"/>
+				<reportElement positionType="Float" x="0" y="-1" width="792" height="21" uuid="834d6a4c-84ba-41e3-ad83-77994144e24f"/>
 				<subreportParameter name="pekerjaan">
 					<subreportParameterExpression><![CDATA[$F{pekerjaan}]]></subreportParameterExpression>
 				</subreportParameter>

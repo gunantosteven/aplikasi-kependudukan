@@ -316,23 +316,31 @@
 		<band height="142">
 			<staticText>
 				<reportElement x="584" y="32" width="198" height="20" uuid="a3a7225b-6b51-40b4-8189-bc8be87ddb3f"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
 				<text><![CDATA[KEPALA DESA SUGENG]]></text>
 			</staticText>
 			<textField>
 				<reportElement x="584" y="122" width="198" height="20" uuid="9f045f3b-4df0-49c4-a0ff-a292a3f0acdd"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$P{kepalaDesa}]]></textFieldExpression>
 			</textField>
 			<elementGroup>
 				<staticText>
-					<reportElement x="584" y="12" width="42" height="20" uuid="7406fe84-201c-418c-be07-b1a8f1eef4ba"/>
-					<textElement textAlignment="Center"/>
+					<reportElement x="584" y="12" width="59" height="20" uuid="7406fe84-201c-418c-be07-b1a8f1eef4ba"/>
+					<textElement textAlignment="Center">
+						<font isBold="true"/>
+					</textElement>
 					<text><![CDATA[Sugeng,]]></text>
 				</staticText>
-				<textField pattern="">
-					<reportElement x="626" y="12" width="156" height="20" uuid="199b7305-7e05-4e51-998f-e9583360aa15"/>
-					<textElement textAlignment="Center"/>
+				<textField pattern="dd MMMMM yyyy">
+					<reportElement x="643" y="12" width="139" height="20" uuid="199b7305-7e05-4e51-998f-e9583360aa15"/>
+					<textElement textAlignment="Center">
+						<font isBold="true"/>
+					</textElement>
 					<textFieldExpression><![CDATA[$P{tanggal}]]></textFieldExpression>
 				</textField>
 			</elementGroup>

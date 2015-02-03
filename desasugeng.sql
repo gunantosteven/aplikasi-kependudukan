@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jan 30, 2015 at 01:39 
+-- Generation Time: Feb 03, 2015 at 04:28 
 -- Server version: 5.5.36
 -- PHP Version: 5.4.27
 
@@ -45,16 +45,6 @@ CREATE TABLE IF NOT EXISTS `data_penduduk` (
   PRIMARY KEY (`nik`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `data_penduduk`
---
-
-INSERT INTO `data_penduduk` (`nik`, `namaLengkap`, `jenisKelamin`, `statusKawin`, `tempatLahir`, `tanggalLahir`, `agama`, `pendidikanTerakhir`, `pekerjaan`, `kewarganegaraan`, `alamatLengkap`, `kedudukanDalamKeluarga`, `kk`, `keterangan`, `status`) VALUES
-('12312312', 'steven', 'PRIA', 'KAWIN', 'asfasf', '1930-01-29', 'asfasf', 'asfasfas', 'ABRI', 'WNA', 'asfasf', 'BAPAK', 'asdf', 'asfasf', 'Hidup'),
-('asd', 'asd', 'PRIA', 'KAWIN', 'asd', '2015-01-01', 'asd', 'asd', 'PEGAWAI NEGERI', 'WNA', 'asd', 'IBU', 'asdf', 'asd', 'MATI'),
-('bbb', 'bbb', 'PRIA', 'KAWIN', 'aasd', '2015-01-01', 'asfasf', 'asfasfasf', 'PEDAGANG', 'WNI', 'asfasf', 'IBU', 'bb', 'afasf', 'Hidup'),
-('zxc', 'zxc', 'WANITA', 'KAWIN', 'zxc', '1994-01-28', 'zxc', 'zxc', 'LAIN-LAIN', 'WNI', 'zxc', 'ANAK', 'asdf', 'zxc', 'MATI');
-
 -- --------------------------------------------------------
 
 --
@@ -70,14 +60,6 @@ CREATE TABLE IF NOT EXISTS `mutasi` (
   PRIMARY KEY (`id`),
   KEY `nik` (`nik`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=76 ;
-
---
--- Dumping data for table `mutasi`
---
-
-INSERT INTO `mutasi` (`id`, `nik`, `tempat`, `tanggal`, `keterangan`) VALUES
-(73, 'zxc', 'surabaya', '1970-02-01', 'MATI'),
-(75, 'asd', 'asd', '1970-02-01', 'MATI');
 
 --
 -- Constraints for dumped tables
