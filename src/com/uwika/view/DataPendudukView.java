@@ -56,7 +56,22 @@ public class DataPendudukView extends javax.swing.JPanel {
         dataPenduduk.setKk(txtKK.getText());
         dataPenduduk.setNamaLengkap(txtNamaLengkap.getText());
         dataPenduduk.setJenisKelamin(comboJenisKelamin.getSelectedItem().toString().equals("PRIA") ? JenisKelamin.PRIA : JenisKelamin.WANITA);
-        dataPenduduk.setStatusKawin(comboStatusKawin.getSelectedItem().toString().equals("Kawin") ? StatusKawin.KAWIN : StatusKawin.TIDAKKAWIN );
+        if(comboStatusKawin.getSelectedIndex() == 0)
+        {
+            dataPenduduk.setStatusKawin(StatusKawin.KAWIN);
+        }
+        else if(comboStatusKawin.getSelectedIndex() == 1)
+        {
+            dataPenduduk.setStatusKawin(StatusKawin.TIDAKKAWIN);
+        }
+        else if(comboStatusKawin.getSelectedIndex() == 2)
+        {
+            dataPenduduk.setStatusKawin(StatusKawin.CERAIHIDUP);
+        }
+        else if(comboStatusKawin.getSelectedIndex() == 3)
+        {
+            dataPenduduk.setStatusKawin(StatusKawin.CERAIMATI);
+        }
         dataPenduduk.setTempatLahir(txtTempatLahir.getText());
         dataPenduduk.setTanggalLahir(new Date(calendarTanggalLahir.getDate().getTime()));
         dataPenduduk.setAgama(txtAgama.getText());
@@ -75,7 +90,23 @@ public class DataPendudukView extends javax.swing.JPanel {
         txtKK.setText(dataPenduduk.getKk());
         txtNamaLengkap.setText(dataPenduduk.getNamaLengkap());
         comboJenisKelamin.setSelectedItem(dataPenduduk.getJenisKelamin().toString());
-        comboStatusKawin.setSelectedItem(dataPenduduk.getStatusKawin().toString());
+        if(dataPenduduk.getStatusKawin() == StatusKawin.KAWIN)
+        {
+            comboStatusKawin.setSelectedIndex(0);
+        }
+        else if(dataPenduduk.getStatusKawin() == StatusKawin.TIDAKKAWIN)
+        {
+            comboStatusKawin.setSelectedIndex(1);
+        }
+        else if(dataPenduduk.getStatusKawin() == StatusKawin.CERAIHIDUP)
+        {
+            comboStatusKawin.setSelectedIndex(2);
+        }
+        else if(dataPenduduk.getStatusKawin() == StatusKawin.CERAIMATI)
+        {
+            comboStatusKawin.setSelectedIndex(3);
+        }
+        
         txtTempatLahir.setText(dataPenduduk.getTempatLahir());
         calendarTanggalLahir.setDate(new java.util.Date(dataPenduduk.getTanggalLahir().getTime()));
         txtAgama.setText(dataPenduduk.getAgama());
@@ -298,7 +329,7 @@ public class DataPendudukView extends javax.swing.JPanel {
 
         jLabel15.setText("Status Kawin");
 
-        comboStatusKawin.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Kawin", "Tidak Kawin" }));
+        comboStatusKawin.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Kawin", "Tidak Kawin", "Cerai Hidup", "Cerai Mati" }));
 
         txtKeteranngan.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -347,6 +378,12 @@ public class DataPendudukView extends javax.swing.JPanel {
         jTable1.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         jScrollPane1.setViewportView(jTable1);
 
+        search.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                searchKeyReleased(evt);
+            }
+        });
+
         jLabel14.setText("Pencarian");
 
         btnUbah.setText("UBAH");
@@ -368,9 +405,10 @@ public class DataPendudukView extends javax.swing.JPanel {
 
         jLabel16.setText("Status");
 
-        comboBoxStatus.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "HIDUP", "MATI" }));
+        comboBoxStatus.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "HIDUP", "MATI", "PINDAH" }));
 
-        comboBoxKedudukanDalamKeluarga.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "BAPAK", "IBU", "ANAK" }));
+        comboBoxKedudukanDalamKeluarga.setEditable(true);
+        comboBoxKedudukanDalamKeluarga.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ORANG TUA", "BAPAK", "IBU", "ANAK", "FAMILI LAIN" }));
 
         comboBoxKewarganegaraan.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "WNI", "WNA" }));
 
@@ -600,6 +638,11 @@ public class DataPendudukView extends javax.swing.JPanel {
         btnUbah.setEnabled(false);
         btnHapus.setEnabled(false);
     }//GEN-LAST:event_btnBaruActionPerformed
+
+    private void searchKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_searchKeyReleased
+        // TODO add your handling code here:
+        jTable1.setModel(new PendudukTableModel(dataPendudukService.getListByName(search.getText())));
+    }//GEN-LAST:event_searchKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

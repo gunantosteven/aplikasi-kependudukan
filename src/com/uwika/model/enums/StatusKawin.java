@@ -10,5 +10,5 @@ package com.uwika.model.enums;
  * @author gunanto
  */
 public enum StatusKawin {
-    KAWIN, TIDAKKAWIN
+    KAWIN, TIDAKKAWIN, CERAIMATI, CERAIHIDUP;
 }

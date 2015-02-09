@@ -17,10 +17,11 @@ import java.sql.Statement;
 public class KoneksiMySQL {
     public static Connection connection;
     public static Statement stat;
+    public static String ip;
     static String lokasKoneksi;
 
     public static void koneksi(){
-        lokasKoneksi="jdbc:mysql://localhost/desasugeng";
+        lokasKoneksi="jdbc:mysql://" + ip + "/desasugeng";
         try{
             Class.forName("com.mysql.jdbc.Driver");
             connection = DriverManager.getConnection(lokasKoneksi, "root", "");

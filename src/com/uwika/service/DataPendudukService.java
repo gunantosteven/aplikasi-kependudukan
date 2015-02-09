@@ -128,7 +128,22 @@ public class DataPendudukService {
                 dataPendudukan.setNik(resultSet.getString("nik"));
                 dataPendudukan.setNamaLengkap(resultSet.getString("namaLengkap"));
                 dataPendudukan.setJenisKelamin(resultSet.getString("jenisKelamin").equals("PRIA") ? JenisKelamin.PRIA : JenisKelamin.WANITA);
-                dataPendudukan.setStatusKawin(resultSet.getString("statusKawin").equals("KAWIN") ? StatusKawin.KAWIN : StatusKawin.TIDAKKAWIN);
+                if(resultSet.getString("statusKawin").equalsIgnoreCase("KAWIN"))
+                {
+                    dataPendudukan.setStatusKawin(StatusKawin.KAWIN);
+                }
+                else if(resultSet.getString("statusKawin").equalsIgnoreCase("TIDAKKAWIN"))
+                {
+                    dataPendudukan.setStatusKawin(StatusKawin.TIDAKKAWIN);
+                }
+                else if(resultSet.getString("statusKawin").equalsIgnoreCase("CERAIHIDUP"))
+                {
+                    dataPendudukan.setStatusKawin(StatusKawin.CERAIHIDUP);
+                }
+                else if(resultSet.getString("statusKawin").equalsIgnoreCase("CERAIMATI"))
+                {
+                    dataPendudukan.setStatusKawin(StatusKawin.CERAIMATI);
+                }
                 dataPendudukan.setTempatLahir(resultSet.getString("tempatLahir"));
                 dataPendudukan.setTanggalLahir(resultSet.getDate("tanggalLahir"));
                 dataPendudukan.setAgama(resultSet.getString("agama"));
@@ -172,7 +187,22 @@ public class DataPendudukService {
                 dataPenduduk.setNik(resultSet.getString("nik"));
                 dataPenduduk.setNamaLengkap(resultSet.getString("namaLengkap"));
                 dataPenduduk.setJenisKelamin(resultSet.getString("jenisKelamin").equals("PRIA") ? JenisKelamin.PRIA : JenisKelamin.WANITA);
-                dataPenduduk.setStatusKawin(resultSet.getString("statusKawin").equals("KAWIN") ? StatusKawin.KAWIN : StatusKawin.TIDAKKAWIN);
+                if(resultSet.getString("statusKawin").equalsIgnoreCase("KAWIN"))
+                {
+                    dataPenduduk.setStatusKawin(StatusKawin.KAWIN);
+                }
+                else if(resultSet.getString("statusKawin").equalsIgnoreCase("TIDAKKAWIN"))
+                {
+                    dataPenduduk.setStatusKawin(StatusKawin.TIDAKKAWIN);
+                }
+                else if(resultSet.getString("statusKawin").equalsIgnoreCase("CERAIHIDUP"))
+                {
+                    dataPenduduk.setStatusKawin(StatusKawin.CERAIHIDUP);
+                }
+                else if(resultSet.getString("statusKawin").equalsIgnoreCase("CERAIMATI"))
+                {
+                    dataPenduduk.setStatusKawin(StatusKawin.CERAIMATI);
+                }
                 dataPenduduk.setTempatLahir(resultSet.getString("tempatLahir"));
                 dataPenduduk.setTanggalLahir(resultSet.getDate("tanggalLahir"));
                 dataPenduduk.setAgama(resultSet.getString("agama"));
@@ -205,8 +235,7 @@ public class DataPendudukService {
     {
         ArrayList<DataPenduduk> listDataPenduduk = new ArrayList<DataPenduduk>();
         Statement s = null;
-        DataPenduduk dataPenduduk = new DataPenduduk();
-        
+     
         try
         {
             String sql = "select * from data_penduduk where namaLengkap like '%"+ nama +"%' limit 1000";
@@ -218,7 +247,22 @@ public class DataPendudukService {
                 dataPendudukan.setNik(resultSet.getString("nik"));
                 dataPendudukan.setNamaLengkap(resultSet.getString("namaLengkap"));
                 dataPendudukan.setJenisKelamin(resultSet.getString("jenisKelamin").equals("PRIA") ? JenisKelamin.PRIA : JenisKelamin.WANITA);
-                dataPendudukan.setStatusKawin(resultSet.getString("statusKawin").equals("KAWIN") ? StatusKawin.KAWIN : StatusKawin.TIDAKKAWIN);
+                if(resultSet.getString("statusKawin").equalsIgnoreCase("KAWIN"))
+                {
+                    dataPendudukan.setStatusKawin(StatusKawin.KAWIN);
+                }
+                else if(resultSet.getString("statusKawin").equalsIgnoreCase("TIDAKKAWIN"))
+                {
+                    dataPendudukan.setStatusKawin(StatusKawin.TIDAKKAWIN);
+                }
+                else if(resultSet.getString("statusKawin").equalsIgnoreCase("CERAIHIDUP"))
+                {
+                    dataPendudukan.setStatusKawin(StatusKawin.CERAIHIDUP);
+                }
+                else if(resultSet.getString("statusKawin").equalsIgnoreCase("CERAIMATI"))
+                {
+                    dataPendudukan.setStatusKawin(StatusKawin.CERAIMATI);
+                }
                 dataPendudukan.setTempatLahir(resultSet.getString("tempatLahir"));
                 dataPendudukan.setTanggalLahir(resultSet.getDate("tanggalLahir"));
                 dataPendudukan.setAgama(resultSet.getString("agama"));
@@ -229,7 +273,7 @@ public class DataPendudukService {
                 dataPendudukan.setKedudukanDalamKeluarga(resultSet.getString("kedudukanDalamKeluarga"));
                 dataPendudukan.setKk(resultSet.getString("kk"));
                 dataPendudukan.setKeterangan(resultSet.getString("keterangan"));
-                
+                dataPendudukan.setStatus(resultSet.getString("status"));
                 listDataPenduduk.add(dataPendudukan);
             }
         }

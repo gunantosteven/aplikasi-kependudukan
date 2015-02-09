@@ -288,9 +288,11 @@
     <Component class="javax.swing.JComboBox" name="comboStatusKawin">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="2">
+          <StringArray count="4">
             <StringItem index="0" value="Kawin"/>
             <StringItem index="1" value="Tidak Kawin"/>
+            <StringItem index="2" value="Cerai Hidup"/>
+            <StringItem index="3" value="Cerai Mati"/>
           </StringArray>
         </Property>
       </Properties>
@@ -357,6 +359,9 @@
       </SubComponents>
     </Container>
     <Component class="javax.swing.JTextField" name="search">
+      <Events>
+        <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="searchKeyReleased"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel14">
       <Properties>
@@ -407,20 +412,24 @@
     <Component class="javax.swing.JComboBox" name="comboBoxStatus">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="2">
+          <StringArray count="3">
             <StringItem index="0" value="HIDUP"/>
             <StringItem index="1" value="MATI"/>
+            <StringItem index="2" value="PINDAH"/>
           </StringArray>
         </Property>
       </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="comboBoxKedudukanDalamKeluarga">
       <Properties>
+        <Property name="editable" type="boolean" value="true"/>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="3">
-            <StringItem index="0" value="BAPAK"/>
-            <StringItem index="1" value="IBU"/>
-            <StringItem index="2" value="ANAK"/>
+          <StringArray count="5">
+            <StringItem index="0" value="ORANG TUA"/>
+            <StringItem index="1" value="BAPAK"/>
+            <StringItem index="2" value="IBU"/>
+            <StringItem index="3" value="ANAK"/>
+            <StringItem index="4" value="FAMILI LAIN"/>
           </StringArray>
         </Property>
       </Properties>

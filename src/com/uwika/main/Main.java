@@ -14,6 +14,7 @@ import com.uwika.service.KoneksiMySQL;
 import com.uwika.service.MutasiService;
 import com.uwika.view.Menu;
 import java.sql.Date;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -22,6 +23,8 @@ import java.sql.Date;
 public class Main {
     public static void main(String[] args)
     {
+        //KoneksiMySQL.ip = JOptionPane.showInputDialog(null, "masukan ip server !");
+        KoneksiMySQL.ip = "localhost";
         KoneksiMySQL.koneksi();
         new Menu().setVisible(true);
     }

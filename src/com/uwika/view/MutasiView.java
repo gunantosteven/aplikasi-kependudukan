@@ -374,6 +374,10 @@ public class MutasiView extends javax.swing.JPanel {
             {
                 ds.updateStatusKematian(mutasi.getNik(), "MATI");
             }
+            else if(comboKeterangan.getSelectedItem().toString().equals("PINDAH"))
+            {
+                ds.updateStatusKematian(mutasi.getNik(), "PINDAH");
+            }
             if(ms.insert(mutasi))
             {
                 refreshTable();
@@ -396,6 +400,10 @@ public class MutasiView extends javax.swing.JPanel {
             if(comboKeterangan.getSelectedItem().toString().equals("MATI"))
             {
                 ds.updateStatusKematian(mutasi.getNik(), "MATI");
+            }
+            else if(comboKeterangan.getSelectedItem().toString().equals("PINDAH"))
+            {
+                ds.updateStatusKematian(mutasi.getNik(), "PINDAH");
             }
             if(ms.update(Long.parseLong(jTable1.getValueAt(jTable1.getSelectedRow(), 0).toString()),mutasi))
             {
